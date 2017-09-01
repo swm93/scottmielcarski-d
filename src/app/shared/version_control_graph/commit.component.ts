@@ -3,15 +3,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 
 @Component({
-  selector: 'swm-node',
-  templateUrl: './node.component.html',
-  styleUrls: ['./node.component.css'],
+  selector: 'vcg-commit',
+  templateUrl: './commit.component.html',
+  styleUrls: ['./commit.component.css'],
   host: {
     '[style.font-size]': 'height',
     '[style.margin]': 'margin'
   }
 })
-export class NodeComponent {
+export class CommitComponent {
   @Input()
   public name: string;
 

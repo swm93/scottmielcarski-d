@@ -1,9 +1,9 @@
-<swm-graph>
-  <swm-node name="popcornEnabled" [depth]="1">First commit</swm-node>
-  <swm-node name="agentsOfDiscovery" [depth]="1">Last commit</swm-node>
-  <swm-node name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</swm-node>
-  <swm-node name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</swm-node>
-  <swm-node name="node5" [depth]="2" [parentNodes]="['node3','node4']">Last commit</swm-node>
-  <swm-node name="node6" [depth]="2">Last commit</swm-node>
-  <swm-node name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</swm-node>
-</swm-graph>
+<vcg-graph>
+  <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
+  <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
+  <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
+  <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
+  <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3','node4']">Last commit</vcg-commit>
+  <vcg-commit name="node6" [depth]="2">Last commit</vcg-commit>
+  <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
+</vcg-graph>

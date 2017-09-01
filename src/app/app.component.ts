@@ -1,7 +1,5 @@
 import { Component} from '@angular/core';
 
-import { GraphComponent } from './shared/graph/graph.component';
-
 
 
 @Component({

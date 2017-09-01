@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { GraphComponent } from './graph.component';
-import { NodeComponent } from './node/node.component';
+import { CommitComponent } from './commit.component';
 
 
 
 @NgModule({
   imports: [CommonModule, FormsModule],
-  declarations: [GraphComponent, NodeComponent],
-  exports: [GraphComponent, NodeComponent]
+  declarations: [GraphComponent, CommitComponent],
+  exports: [GraphComponent, CommitComponent]
 })
-export class GraphModule { }
+export class VersionControlGraphModule { }

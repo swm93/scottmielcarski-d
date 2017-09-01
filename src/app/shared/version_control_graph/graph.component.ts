@@ -1,16 +1,17 @@
 import { Component, ElementRef, Input, Output, QueryList, ContentChildren, ViewChild, AfterContentInit } from '@angular/core';
 
-import { NodeComponent } from './node/node.component';
+import { CommitComponent } from './commit.component';
+
 
 
 @Component({
-  selector: 'swm-graph',
+  selector: 'vcg-graph',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.css'],
   host: {}
 })
 export class GraphComponent implements AfterContentInit {
-  @ContentChildren(NodeComponent) nodes : QueryList<NodeComponent>;
+  @ContentChildren(CommitComponent) nodes : QueryList<CommitComponent>;
   @ViewChild('canvas') canvas:ElementRef;
 
   @Input()
@@ -39,26 +40,26 @@ export class GraphComponent implements AfterContentInit {
     return 2 * this.nodeRadius;
   }
 
-  public get messageHeight(): number {
-    if (this._messageHeight === undefined) {
-      this._messageHeight = this.nodeDiameter + this._messageHeightDifference;
+  public get commitHeight(): number {
+    if (this._commitHeight === undefined) {
+      this._commitHeight = this.nodeDiameter + this._commitHeightDifference;
     }
-    return this._messageHeight;
+    return this._commitHeight;
   }
 
-  public get messageMargin(): number {
-    if (this._messageMargin === undefined) {
-      this._messageMargin = this.nodeSpacingY - this.nodeLineWidth - this._messageHeightDifference;
+  public get commitMargin(): number {
+    if (this._commitMargin === undefined) {
+      this._commitMargin = this.nodeSpacingY - this.nodeLineWidth - this._commitHeightDifference;
     }
-    return this._messageMargin;
+    return this._commitMargin;
   }
 
   private const _stradleFactor: number = 0.5;
-  private const _messageHeightDifference: number = 2;
+  private const _commitHeightDifference: number = 2;
 
   private _context: CanvasRenderingContext2D;
-  private _messageHeight: number;
-  private _messageMargin: number;
+  private _commitHeight: number;
+  private _commitMargin: number;
 
 
   public ngAfterContentInit() {
@@ -66,7 +67,7 @@ export class GraphComponent implements AfterContentInit {
   }
 
   public redraw() {
-    let nodes: NodeComponent[] = this.nodes.toArray();
+    let nodes: CommitComponent[] = this.nodes.toArray();
 
     // set size of canvas scaled for device pixel density
     let maxDepth: number = nodes.reduce(
@@ -83,21 +84,21 @@ export class GraphComponent implements AfterContentInit {
 
     // draw nodes and edges
     for (var i: number = 0; i < nodes.length; ++i) {
-      let node: NodeComponent = nodes[i];
+      let node: CommitComponent = nodes[i];
       let depth: number = node.depth;
       let x: number = this.nodeRadius + (depth - 1) * this.nodeDiameter + (depth - 1) * this.nodeSpacingX;
       let y: number = this.nodeRadius + i * this.nodeDiameter + (i + 0.5) * this.nodeSpacingY;
 
-      node.height = this.messageHeight + "px";
+      node.height = this.commitHeight + "px";
 
       if (i === 0) {
-        node.margin = 0.5 * this.messageMargin + "px 0px " + this.messageMargin + "px 0px";
+        node.margin = 0.5 * this.commitMargin + "px 0px " + this.commitMargin + "px 0px";
       }
       else if (i === nodes.length - 1) {
-        node.margin = this.messageMargin + "px 0px " + 0.5 * this.messageMargin + "px 0px";
+        node.margin = this.commitMargin + "px 0px " + 0.5 * this.commitMargin + "px 0px";
       }
       else {
-        node.margin = this.messageMargin + "px 0px";
+        node.margin = this.commitMargin + "px 0px";
       }
 
       this.context.lineWidth = this.nodeLineWidth;
@@ -119,7 +120,7 @@ export class GraphComponent implements AfterContentInit {
 
       // get the parent nodes for the node; if no parents exist use the
       // previous node in the list
-      var parentNodes: NodeComponent[] = this._getParentNodes(node);
+      var parentNodes: CommitComponent[] = this._getParentNodes(node);
       if (parentNodes.length === 0) {
         parentNodes.push(nodes[i-1]);
       }
@@ -128,7 +129,7 @@ export class GraphComponent implements AfterContentInit {
       this.context.lineWidth = this.edgeLineWidth;
 
       for (var j = 0; j < parentNodes.length; ++j) {
-        let parentNode: NodeComponent = parentNodes[j];
+        let parentNode: CommitComponent = parentNodes[j];
         let parentIndex: number = nodes.indexOf(parentNode);
         let parentDepth: number = parentNode.depth;
         let parentX: number = this.nodeRadius + (parentDepth - 1) * this.nodeDiameter + (parentDepth - 1) * this.nodeSpacingX;
@@ -194,13 +195,13 @@ export class GraphComponent implements AfterContentInit {
     this.context.scale(ratio, ratio); 
   }
 
-  private _getParentNodes(node: NodeComponent): NodeComponent[] {
-    var parentNodes: NodeComponent[] = [];
+  private _getParentNodes(node: CommitComponent): CommitComponent[] {
+    var parentNodes: CommitComponent[] = [];
     let parentNodeNames: string[] = node.parentNodes;
 
     for (var j = 0; j < parentNodeNames.length; ++j) {
       let parentNodeName: string = parentNodeNames[j];
-      let parentNode: NodeComponent = this.nodes.find(function(n) {
+      let parentNode: CommitComponent = this.nodes.find(function(n) {
         return n.name === parentNodeName;
       });
 
