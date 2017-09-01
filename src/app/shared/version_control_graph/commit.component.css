@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+:host:nth-child(even) {
+  background-color: #ffffff;
+}
+
 :host:nth-child(odd) {
   background-color: #f0f7ff;
 }
