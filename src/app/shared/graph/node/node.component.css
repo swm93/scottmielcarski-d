@@ -1,0 +1,10 @@
+:host {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#message {
+  margin: 0;
+}

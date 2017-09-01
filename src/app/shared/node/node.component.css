@@ -1,0 +1,48 @@
+:host {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+}
+
+:host[depth="0"] {
+  background-color: red;
+}
+
+:host[depth="1"] {
+  background-color: orange;
+}
+
+#node-container {
+  display: block;
+
+  font-size: 0;
+}
+
+#node-container > #node {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 100%;
+  border-color: #000000;
+}
+
+#message-container {
+  display: inline-block;
+
+  font-size: normal;
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20px;
+  width: 1px;
+
+  background-color: #000000;
+}

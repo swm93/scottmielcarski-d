@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 10vh 10vw;
+}
+
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+}

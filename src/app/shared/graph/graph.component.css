@@ -1,0 +1,32 @@
+:host {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+
+  font-size: 0;
+}
+
+#graph-canvas {
+  position: relative;
+}
+
+#commit-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  font-size: initial;
+}
+
+#alignment-p {
+  float: left;
+  height: 100%;
+  width: 50px;
+  margin: 0;
+}
+
+#commit-container:nth-child(n) {
+  background-color: #ffffff;
+}
