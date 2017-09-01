@@ -1,0 +1,32 @@
+:host {
+  position: relative;
+  display: block;
+  margin: 18px 0;
+}
+
+#horizontal-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: -1;
+
+  background-color: #777;
+}
+
+
+.link {
+  vertical-align: middle;
+  margin: 0 12px;
+  padding: 0 8px;
+
+  color: #000000;
+  /*TODO(scott): make this a variable*/
+  background-color: #eeeeee;
+
+  font-size: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+}

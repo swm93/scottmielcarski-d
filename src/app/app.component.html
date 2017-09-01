@@ -1,9 +1,14 @@
+<swm-navbar title="Scott Mielcarski">
+  <swm-navbar-link href="#projects">Projects</swm-navbar-link>
+  <swm-navbar-link href="#resume">Resume</swm-navbar-link>
+</swm-navbar>
+
 <vcg-graph>
   <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
   <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
   <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
   <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-  <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3','node4']">Last commit</vcg-commit>
-  <vcg-commit name="node6" [depth]="2">Last commit</vcg-commit>
+  <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3']">Last commit</vcg-commit>
+  <vcg-commit name="node6" [depth]="2" [parentNodes]="['node5','node4']">Last commit</vcg-commit>
   <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
 </vcg-graph>

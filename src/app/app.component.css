@@ -1,8 +1,9 @@
 :host {
   display: block;
-  box-sizing: border-box;
-  height: 100vh;
-  padding: 10vh 10vw;
+  box-sizing: content-box;
+  max-width: 968px;
+  margin: auto;
+  padding: 0 20px;
 }
 
 .container {
@@ -10,3 +11,4 @@
   display: block;
   width: 100%;
 }
+
