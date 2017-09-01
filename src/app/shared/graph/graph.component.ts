@@ -1,4 +1,4 @@
-import { Component, Input, Output, QueryList, ContentChildren, AfterContentInit } from '@angular/core';
+import { Component, ElementRef, Input, Output, QueryList, ContentChildren, ViewChild, AfterContentInit } from '@angular/core';
 
 import { NodeComponent } from './node/node.component';
 
@@ -10,169 +10,205 @@ import { NodeComponent } from './node/node.component';
   host: {}
 })
 export class GraphComponent implements AfterContentInit {
-@ContentChildren(NodeComponent) nodes : QueryList<NodeComponent>;
+  @ContentChildren(NodeComponent) nodes : QueryList<NodeComponent>;
+  @ViewChild('canvas') canvas:ElementRef;
 
   @Input()
-  public nodeLineWidth:number = 2;
+  public nodeLineWidth: number = 2;
 
   @Input()
-  public nodeRadius:number = 5.5;
+  public nodeRadius: number = 5.5;
 
   @Input()
-  public nodeSpacingX:number = 4;
+  public nodeSpacingX: number = 4;
 
   @Input()
-  public nodeSpacingY:number = 12;
+  public nodeSpacingY: number = 12;
 
   @Input()
-  public edgeLineWidth:number = 1;
+  public edgeLineWidth: number = 1;
 
-  private _stradleFactor:number = 0;
-
-
-  ngAfterContentInit() {
-    this.redrawGraph();
+  public get context(): CanvasRenderingContext2D {
+    if (this._context === undefined) {
+      this._context = this.canvas.nativeElement.getContext('2d');
+    }
+    return this._context;
   }
 
-  redrawGraph() {
-    var nodes = this.nodes.toArray();
-    var maxDepth = nodes.reduce(
+  public get nodeDiameter(): number {
+    return 2 * this.nodeRadius;
+  }
+
+  public get messageHeight(): number {
+    if (this._messageHeight === undefined) {
+      this._messageHeight = this.nodeDiameter + this._messageHeightDifference;
+    }
+    return this._messageHeight;
+  }
+
+  public get messageMargin(): number {
+    if (this._messageMargin === undefined) {
+      this._messageMargin = this.nodeSpacingY - this.nodeLineWidth - this._messageHeightDifference;
+    }
+    return this._messageMargin;
+  }
+
+  private const _stradleFactor: number = 0.5;
+  private const _messageHeightDifference: number = 2;
+
+  private _context: CanvasRenderingContext2D;
+  private _messageHeight: number;
+  private _messageMargin: number;
+
+
+  public ngAfterContentInit() {
+    this.redraw();
+  }
+
+  public redraw() {
+    let nodes: NodeComponent[] = this.nodes.toArray();
+
+    // set size of canvas scaled for device pixel density
+    let maxDepth: number = nodes.reduce(
       function(max, node) {
         return max > node.depth ? max : node.depth;
       }
     );
+    let graphWidth: number = maxDepth * this.nodeDiameter + (maxDepth - 1) * this.nodeSpacingX + 2 * this._stradleFactor; 
+    let graphHeight: number = nodes.length * this.nodeDiameter + (nodes.length) * this.nodeSpacingY + 2 * this._stradleFactor;
+    this._updateContextPixelRatio(graphWidth, graphHeight);
 
-    var graphWidth = maxDepth * 2 * this.nodeRadius + (maxDepth - 1) * this.nodeSpacingX + 2 * this._stradleFactor; 
-    var graphHeight = nodes.length * 2 * this.nodeRadius + (nodes.length) * this.nodeSpacingY + 2 * this._stradleFactor;
+    // apply stride factor to align pixels
+    this.context.translate(this._stradleFactor, this._stradleFactor);
 
-    var graph = document.getElementById('graph-canvas');
-    graph.width = graphWidth;
-    graph.height = graphHeight;
+    // draw nodes and edges
+    for (var i: number = 0; i < nodes.length; ++i) {
+      let node: NodeComponent = nodes[i];
+      let depth: number = node.depth;
+      let x: number = this.nodeRadius + (depth - 1) * this.nodeDiameter + (depth - 1) * this.nodeSpacingX;
+      let y: number = this.nodeRadius + i * this.nodeDiameter + (i + 0.5) * this.nodeSpacingY;
 
-    var ctx = graph.getContext('2d');
-    ctx.translate(this._stradleFactor, this._stradleFactor);
+      node.height = this.messageHeight + "px";
 
-
-    var devicePixelRatio = window.devicePixelRatio || 1;
-    var backingStoreRatio = (
-      ctx.webkitBackingStorePixelRatio ||
-      ctx.mozBackingStorePixelRatio ||
-      ctx.msBackingStorePixelRatio ||
-      ctx.oBackingStorePixelRatio ||
-      ctx.backingStorePixelRatio ||
-      1
-    );
-    var ratio = devicePixelRatio / backingStoreRatio;
-
-    var oldWidth = graph.width;
-    var oldHeight = graph.height;
-
-    graph.width = oldWidth * ratio;
-    graph.height = oldHeight * ratio;
-
-    graph.style.width = oldWidth + 'px';
-    graph.style.height = oldHeight + 'px';
-
-    // now scale the context to counter
-    // the fact that we've manually scaled
-    // our canvas element
-    ctx.scale(ratio, ratio);
-
-
-    for (var i = 0; i < nodes.length; ++i) {
-      var node = nodes[i];
-      var depth = node.depth;
-      var x = this.nodeRadius + (depth - 1) * 2 * this.nodeRadius + (depth - 1) * this.nodeSpacingX;
-      var y = this.nodeRadius + i * 2 * this.nodeRadius + (i + 0.5) * this.nodeSpacingY;
-
-      node.height = 2 * this.nodeRadius + 2 + "px";
-
-      let nodeMargin: number = this.nodeSpacingY - this.nodeLineWidth - 2;
       if (i === 0) {
-        node.margin = 0.5 * nodeMargin + "px 0px " + nodeMargin + "px 0px";
+        node.margin = 0.5 * this.messageMargin + "px 0px " + this.messageMargin + "px 0px";
       }
       else if (i === nodes.length - 1) {
-        node.margin = nodeMargin + "px 0px " + 0.5 * nodeMargin + "px 0px";
+        node.margin = this.messageMargin + "px 0px " + 0.5 * this.messageMargin + "px 0px";
       }
       else {
-        node.margin = nodeMargin + "px 0px";
+        node.margin = this.messageMargin + "px 0px";
       }
 
-      ctx.lineWidth = this.nodeLineWidth;
-      ctx.beginPath();
-      ctx.arc(
+      this.context.lineWidth = this.nodeLineWidth;
+      this.context.beginPath();
+      this.context.arc(
         x,
         y,
         this.nodeRadius - 0.5 * this.nodeLineWidth,
         0,
         2 * Math.PI
       );
-      ctx.stroke();
-      ctx.closePath();
+      this.context.stroke();
+      this.context.closePath();
 
+      // don't draw edges if this is the first node
       if (i === 0) {
         continue;
       }
 
-      var parentNodes:NodeComponent[] = [];
-      var parentNodeNames:string[] = node.parentNodes;
-      if (parentNodeNames.length === 0) {
+      // get the parent nodes for the node; if no parents exist use the
+      // previous node in the list
+      var parentNodes: NodeComponent[] = this._getParentNodes(node);
+      if (parentNodes.length === 0) {
         parentNodes.push(nodes[i-1]);
       }
-      else {
-        for (var j = 0; j < parentNodeNames.length; ++j) {
-          let parentNodeName:string = parentNodeNames[j];
-          let parentNode:NodeComponent = nodes.find(function(n) {
-            return n.name === parentNodeName;
-          });
 
-          if (parentNode !== undefined) {
-            parentNodes.push(parentNode);
-          }
-        }
-      }
+      // begin drawing edges
+      this.context.lineWidth = this.edgeLineWidth;
 
-      ctx.lineWidth = this.edgeLineWidth;
       for (var j = 0; j < parentNodes.length; ++j) {
-        var parentNode = parentNodes[j];
-        var parentIndex = nodes.indexOf(parentNode);
-        var parentDepth = parentNode.depth;
-        var parentX = this.nodeRadius + (parentDepth - 1) * 2 * this.nodeRadius + (parentDepth - 1) * this.nodeSpacingX;
-        var parentY = this.nodeRadius + parentIndex * 2 * this.nodeRadius + (parentIndex + 0.5) * this.nodeSpacingY;
+        let parentNode: NodeComponent = parentNodes[j];
+        let parentIndex: number = nodes.indexOf(parentNode);
+        let parentDepth: number = parentNode.depth;
+        let parentX: number = this.nodeRadius + (parentDepth - 1) * this.nodeDiameter + (parentDepth - 1) * this.nodeSpacingX;
+        let parentY: number = this.nodeRadius + parentIndex * this.nodeDiameter + (parentIndex + 0.5) * this.nodeSpacingY;
 
-        ctx.beginPath();
+        this.context.beginPath();
 
+        // branching from parentNode to node
         if (depth > parentDepth) {
-          ctx.moveTo(
+          this.context.moveTo(
             parentX,
             parentY + this.nodeRadius
           );
-          ctx.lineTo(
+          this.context.lineTo(
             x,
             parentY + this.nodeRadius + 0.5 * this.nodeSpacingY
           );
-          ctx.lineTo(
+          this.context.lineTo(
             x,
             y - this.nodeRadius
           );
         }
+        // merging parentNode to node
         else {
-          ctx.moveTo(
+          this.context.moveTo(
             parentX,
             parentY + this.nodeRadius
           );
-          ctx.lineTo(
+          this.context.lineTo(
             parentX,
             y - this.nodeRadius - 0.5 * this.nodeSpacingY
           );
-          ctx.lineTo(
+          this.context.lineTo(
             x,
             y - this.nodeRadius
           );
         }
 
-        ctx.stroke();
-        ctx.closePath();
+        this.context.stroke();
+        this.context.closePath();
       }
+  }
+
+  private _updateContextPixelRatio(width: number, height: number) {
+    let devicePixelRatio: number = window.devicePixelRatio || 1;
+    let backingStoreRatio: number = (
+      this.context.webkitBackingStorePixelRatio ||
+      this.context.mozBackingStorePixelRatio ||
+      this.context.msBackingStorePixelRatio ||
+      this.context.oBackingStorePixelRatio ||
+      this.context.backingStorePixelRatio ||
+      1
+    );
+    let ratio: number = devicePixelRatio / backingStoreRatio;
+    let canvasEl: number = this.canvas.nativeElement;
+
+    canvasEl.width = width * ratio;
+    canvasEl.height = height * ratio;
+
+    canvasEl.style.width = width + 'px';
+    canvasEl.style.height = height + 'px';
+
+    this.context.scale(ratio, ratio); 
+  }
+
+  private _getParentNodes(node: NodeComponent): NodeComponent[] {
+    var parentNodes: NodeComponent[] = [];
+    let parentNodeNames: string[] = node.parentNodes;
+
+    for (var j = 0; j < parentNodeNames.length; ++j) {
+      let parentNodeName: string = parentNodeNames[j];
+      let parentNode: NodeComponent = this.nodes.find(function(n) {
+        return n.name === parentNodeName;
+      });
+
+      if (parentNode !== undefined) {
+        parentNodes.push(parentNode);
+      }
+    }
+
+    return parentNodes;
   }
 }
