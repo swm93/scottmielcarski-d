@@ -36,18 +36,18 @@ export class GraphComponent implements AfterContentInit {
     return this._context;
   }
 
-  public get height(): string {
+  public get height(): number {
     return this._height;
   }
   private set height(height: number) {
-    this._height = height + 'px';
+    this._height = height;
   }
 
-  public get width(): string {
+  public get width(): number {
     return this._width;
   }
   private set width(width: number) {
-    this._width = width + 'px';
+    this._width = width;
   }
 
   public get size(): [number, number] {
@@ -132,8 +132,8 @@ export class GraphComponent implements AfterContentInit {
       let x: number = this.nodeRadius + (depth - 1) * this.nodeDiameter + (depth - 1) * this.nodeSpacingX;
       let y: number = this.nodeRadius + i * this.nodeDiameter + (i + 0.5) * this.nodeSpacingY;
 
-      node.height = this.commitHeight + "px";
-      node.padding = this.commitPadding + "px 0px";
+      node.height = this.commitHeight;
+      node.padding = this.commitPadding;
 
       this.context.lineWidth = this.nodeLineWidth;
       this.context.beginPath();

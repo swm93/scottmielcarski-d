@@ -7,8 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './commit.component.html',
   styleUrls: ['./commit.component.css'],
   host: {
-    '[style.font-size]': 'height',
-    '[style.padding]': 'padding'
+    '[style.font-size.px]': 'height',
+    '[style.padding-top.px]': 'padding',
+    '[style.padding-bottom.px]': 'padding'
   }
 })
 export class CommitComponent {
@@ -22,8 +23,8 @@ export class CommitComponent {
   public parentNodes: string[] = [];
 
   @Input()
-  public height: string;
+  public height: number;
 
   @Input()
-  public padding: string;
+  public padding: number;
 }
