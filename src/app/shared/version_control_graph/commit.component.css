@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+:host:nth-child(odd) {
+  background-color: #f0f7ff;
+}
+
 #message {
   margin: 0;
 

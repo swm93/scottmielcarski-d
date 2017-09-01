@@ -18,14 +18,11 @@
   right: 0;
 
   font-size: initial;
+  background-color: #ffffff;
 }
 
 #alignment-p {
   float: left;
   margin: 0;
   padding-right: 12px;
-}
-
-#commit-container:nth-child(n) {
-  background-color: #ffffff;
 }
