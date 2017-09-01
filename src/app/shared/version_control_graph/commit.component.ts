@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./commit.component.css'],
   host: {
     '[style.font-size]': 'height',
-    '[style.margin]': 'margin'
+    '[style.padding]': 'padding'
   }
 })
 export class CommitComponent {
@@ -25,5 +25,5 @@ export class CommitComponent {
   public height: string;
 
   @Input()
-  public margin: string;
+  public padding: string;
 }

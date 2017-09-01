@@ -13,7 +13,6 @@ import { CommitComponent } from './commit.component';
 export class GraphComponent implements AfterContentInit {
   @ContentChildren(CommitComponent) nodes : QueryList<CommitComponent>;
   @ViewChild('canvas') canvas:ElementRef;
-  @ViewChild('alignmentP') alignmentP:ElementRef;
 
   @Input()
   public nodeLineWidth: number = 2;
@@ -37,6 +36,47 @@ export class GraphComponent implements AfterContentInit {
     return this._context;
   }
 
+  public get height(): string {
+    return this._height;
+  }
+  private set height(height: number) {
+    this._height = height + 'px';
+  }
+
+  public get width(): string {
+    return this._width;
+  }
+  private set width(width: number) {
+    this._width = width + 'px';
+  }
+
+  public get size(): [number, number] {
+    return [this.width, this.height];
+  }
+  private set size(size: [number, number]) {
+    if (this.canvas !== undefined) {
+      let devicePixelRatio: number = window.devicePixelRatio || 1;
+      let backingStoreRatio: number = (
+        this.context.webkitBackingStorePixelRatio ||
+        this.context.mozBackingStorePixelRatio ||
+        this.context.msBackingStorePixelRatio ||
+        this.context.oBackingStorePixelRatio ||
+        this.context.backingStorePixelRatio ||
+        1
+      );
+      let ratio: number = devicePixelRatio / backingStoreRatio;
+      let canvasEl: Element = this.canvas.nativeElement;
+
+      canvasEl.width = size[0] * ratio;
+      canvasEl.height = size[1] * ratio;
+
+      this.context.scale(ratio, ratio); 
+    }
+
+    this.width = size[0];
+    this.height = size[1];
+  }
+
   public get nodeDiameter(): number {
     return 2 * this.nodeRadius;
   }
@@ -48,19 +88,21 @@ export class GraphComponent implements AfterContentInit {
     return this._commitHeight;
   }
 
-  public get commitMargin(): number {
-    if (this._commitMargin === undefined) {
-      this._commitMargin = this.nodeSpacingY - this.nodeLineWidth - this._commitHeightDifference;
+  public get commitPadding(): number {
+    if (this._commitPadding === undefined) {
+      this._commitPadding = 0.5 * (this.nodeSpacingY - this.nodeLineWidth);
     }
-    return this._commitMargin;
+    return this._commitPadding;
   }
 
   private const _stradleFactor: number = 0.5;
   private const _commitHeightDifference: number = 2;
 
   private _context: CanvasRenderingContext2D;
+  private _height: string;
+  private _width: string;
   private _commitHeight: number;
-  private _commitMargin: number;
+  private _commitPadding: number;
 
 
   public ngAfterContentInit() {
@@ -78,7 +120,7 @@ export class GraphComponent implements AfterContentInit {
     );
     let graphWidth: number = maxDepth * this.nodeDiameter + (maxDepth - 1) * this.nodeSpacingX + 2 * this._stradleFactor; 
     let graphHeight: number = nodes.length * this.nodeDiameter + (nodes.length) * this.nodeSpacingY + 2 * this._stradleFactor;
-    this._updateSize(graphWidth, graphHeight);
+    this.size = [graphWidth, graphHeight];
 
     // apply stride factor to align pixels
     this.context.translate(this._stradleFactor, this._stradleFactor);
@@ -91,16 +133,7 @@ export class GraphComponent implements AfterContentInit {
       let y: number = this.nodeRadius + i * this.nodeDiameter + (i + 0.5) * this.nodeSpacingY;
 
       node.height = this.commitHeight + "px";
-
-      if (i === 0) {
-        node.margin = 0.5 * this.commitMargin + "px 0px " + this.commitMargin + "px 0px";
-      }
-      else if (i === nodes.length - 1) {
-        node.margin = this.commitMargin + "px 0px " + 0.5 * this.commitMargin + "px 0px";
-      }
-      else {
-        node.margin = this.commitMargin + "px 0px";
-      }
+      node.padding = this.commitPadding + "px 0px";
 
       this.context.lineWidth = this.nodeLineWidth;
       this.context.beginPath();
@@ -172,32 +205,6 @@ export class GraphComponent implements AfterContentInit {
         this.context.stroke();
         this.context.closePath();
       }
-  }
-
-  private _updateSize(width: number, height: number) {
-    let devicePixelRatio: number = window.devicePixelRatio || 1;
-    let backingStoreRatio: number = (
-      this.context.webkitBackingStorePixelRatio ||
-      this.context.mozBackingStorePixelRatio ||
-      this.context.msBackingStorePixelRatio ||
-      this.context.oBackingStorePixelRatio ||
-      this.context.backingStorePixelRatio ||
-      1
-    );
-    let ratio: number = devicePixelRatio / backingStoreRatio;
-    let canvasEl: Element = this.canvas.nativeElement;
-    let alignmentPEl: Element = this.alignmentP.nativeElement;
-
-    canvasEl.width = width * ratio;
-    canvasEl.height = height * ratio;
-
-    canvasEl.style.width = width + 'px';
-    canvasEl.style.height = height + 'px';
-
-    alignmentPEl.style.width = width + 'px';
-    alignmentPEl.style.height = height + 'px';
-
-    this.context.scale(ratio, ratio); 
   }
 
   private _getParentNodes(node: CommitComponent): CommitComponent[] {

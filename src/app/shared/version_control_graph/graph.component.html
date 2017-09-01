@@ -1,6 +1,6 @@
 <div id="commit-container">
-  <p #alignmentP id="alignment-p"></p>
+  <p id="alignment-p" [style.height]="height" [style.width]="width"></p>
   <ng-content></ng-content>
 </div>
 
-<canvas #canvas id="graph-canvas"></canvas>
+<canvas #canvas id="graph-canvas" [style.height]="height" [style.width]="width"></canvas>
