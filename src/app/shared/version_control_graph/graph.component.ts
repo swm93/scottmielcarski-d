@@ -13,6 +13,7 @@ import { CommitComponent } from './commit.component';
 export class GraphComponent implements AfterContentInit {
   @ContentChildren(CommitComponent) nodes : QueryList<CommitComponent>;
   @ViewChild('canvas') canvas:ElementRef;
+  @ViewChild('alignmentP') alignmentP:ElementRef;
 
   @Input()
   public nodeLineWidth: number = 2;
@@ -77,7 +78,7 @@ export class GraphComponent implements AfterContentInit {
     );
     let graphWidth: number = maxDepth * this.nodeDiameter + (maxDepth - 1) * this.nodeSpacingX + 2 * this._stradleFactor; 
     let graphHeight: number = nodes.length * this.nodeDiameter + (nodes.length) * this.nodeSpacingY + 2 * this._stradleFactor;
-    this._updateContextPixelRatio(graphWidth, graphHeight);
+    this._updateSize(graphWidth, graphHeight);
 
     // apply stride factor to align pixels
     this.context.translate(this._stradleFactor, this._stradleFactor);
@@ -173,7 +174,7 @@ export class GraphComponent implements AfterContentInit {
       }
   }
 
-  private _updateContextPixelRatio(width: number, height: number) {
+  private _updateSize(width: number, height: number) {
     let devicePixelRatio: number = window.devicePixelRatio || 1;
     let backingStoreRatio: number = (
       this.context.webkitBackingStorePixelRatio ||
@@ -184,13 +185,17 @@ export class GraphComponent implements AfterContentInit {
       1
     );
     let ratio: number = devicePixelRatio / backingStoreRatio;
-    let canvasEl: number = this.canvas.nativeElement;
+    let canvasEl: Element = this.canvas.nativeElement;
+    let alignmentPEl: Element = this.alignmentP.nativeElement;
 
     canvasEl.width = width * ratio;
     canvasEl.height = height * ratio;
 
     canvasEl.style.width = width + 'px';
     canvasEl.style.height = height + 'px';
+
+    alignmentPEl.style.width = width + 'px';
+    alignmentPEl.style.height = height + 'px';
 
     this.context.scale(ratio, ratio); 
   }

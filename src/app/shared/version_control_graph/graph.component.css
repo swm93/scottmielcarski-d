@@ -22,9 +22,8 @@
 
 #alignment-p {
   float: left;
-  height: 100%;
-  width: 50px;
   margin: 0;
+  padding-right: 12px;
 }
 
 #commit-container:nth-child(n) {
