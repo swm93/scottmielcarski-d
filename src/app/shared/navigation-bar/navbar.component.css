@@ -16,17 +16,25 @@
 }
 
 
-.link {
+.links /deep/ > a {
   vertical-align: middle;
-  margin: 0 12px;
-  padding: 0 8px;
+  padding: 0 4px;
 
   color: #000000;
   /*TODO(scott): make this a variable*/
   background-color: #eeeeee;
 
+  font-weight: 100;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.links /deep/ > a.primary {
+  margin: 0 12px;
+  padding: 0 8px;
+
   font-size: 1.5em;
   font-weight: 400;
   text-transform: uppercase;
-  text-decoration: none;
 }
