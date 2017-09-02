@@ -36,36 +36,16 @@ export class GraphComponent implements AfterContentInit {
     return this._context;
   }
 
-  public get height(): number {
-    return this._height;
-  }
-  private set height(height: number) {
-    this._height = height;
-  }
-
-  public get width(): number {
-    return this._width;
-  }
-  private set width(width: number) {
-    this._width = width;
-  }
+  public height: number;
+  public width: number;
 
   public get size(): [number, number] {
     return [this.width, this.height];
   }
-  private set size(size: [number, number]) {
+  public set size(size: [number, number]) {
     if (this.canvas !== undefined) {
-      let devicePixelRatio: number = window.devicePixelRatio || 1;
-      let backingStoreRatio: number = (
-        this.context.webkitBackingStorePixelRatio ||
-        this.context.mozBackingStorePixelRatio ||
-        this.context.msBackingStorePixelRatio ||
-        this.context.oBackingStorePixelRatio ||
-        this.context.backingStorePixelRatio ||
-        1
-      );
-      let ratio: number = devicePixelRatio / backingStoreRatio;
-      let canvasEl: Element = this.canvas.nativeElement;
+      let ratio: number = window.devicePixelRatio || 1;
+      let canvasEl: any = this.canvas.nativeElement;
 
       canvasEl.width = size[0] * ratio;
       canvasEl.height = size[1] * ratio;
@@ -95,15 +75,12 @@ export class GraphComponent implements AfterContentInit {
     return this._commitPadding;
   }
 
-  private const _stradleFactor: number = 0.5;
-  private const _commitHeightDifference: number = 2;
+  private _stradleFactor: number = 0.5;
+  private _commitHeightDifference: number = 2;
 
   private _context: CanvasRenderingContext2D;
-  private _height: string;
-  private _width: string;
   private _commitHeight: number;
-  private _commitPadding: number;
-
+  private _commitPadding: number; 
 
   public ngAfterContentInit() {
     this.redraw();
@@ -113,11 +90,12 @@ export class GraphComponent implements AfterContentInit {
     let nodes: CommitComponent[] = this.nodes.toArray();
 
     // set size of canvas scaled for device pixel density
-    let maxDepth: number = nodes.reduce(
-      function(max, node) {
-        return max > node.depth ? max : node.depth;
+    let maxDepthNode: CommitComponent = nodes.reduce(
+      function(previousValue: CommitComponent, currentValue: CommitComponent) {
+        return previousValue.depth > currentValue.depth ? previousValue : currentValue;
       }
     );
+    let maxDepth: number = maxDepthNode.depth;
     let graphWidth: number = maxDepth * this.nodeDiameter + (maxDepth - 1) * this.nodeSpacingX + 2 * this._stradleFactor; 
     let graphHeight: number = nodes.length * this.nodeDiameter + (nodes.length) * this.nodeSpacingY + 2 * this._stradleFactor;
     this.size = [graphWidth, graphHeight];
@@ -205,6 +183,7 @@ export class GraphComponent implements AfterContentInit {
         this.context.stroke();
         this.context.closePath();
       }
+    }
   }
 
   private _getParentNodes(node: CommitComponent): CommitComponent[] {
