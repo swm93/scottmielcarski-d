@@ -15,8 +15,18 @@
   background-color: #777;
 }
 
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-.links /deep/ > a {
+.links /deep/ > div {
+  margin: 0 12px;
+}
+
+.links /deep/ a {
+  display: inline-block;
   vertical-align: middle;
   padding: 0 4px;
 
@@ -30,7 +40,7 @@
   text-decoration: none;
 }
 
-.links /deep/ > a.primary {
+.links /deep/ a.primary {
   margin: 0 12px;
   padding: 0 8px;
 
