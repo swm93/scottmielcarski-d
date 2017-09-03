@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 
+import { CardModule } from './shared/card/card.module';
+
 
 
 @Component({

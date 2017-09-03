@@ -1,0 +1,57 @@
+.card-container {
+  display: flex;
+  margin: 40px 0;
+}
+
+.card-container:first-child {
+  margin-top: 0;
+}
+
+.card-container:last-child {
+  margin-bottom: 0;
+}
+
+
+.card-container > swm-card {
+  width: 70%;
+}
+
+.card-container > .card-image-container {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container:nth-child(even) > swm-card,
+.card-container:nth-child(odd) > .card-image-container {
+  order: 1;
+}
+
+.card-container:nth-child(odd) > swm-card,
+.card-container:nth-child(even) > .card-image-container {
+  order: 2;
+}
+
+swm-card-body .body-text {
+  color: #777;
+  font-size: 0.9em;
+}
+
+@media(max-width: 599px) {
+  .card-container > .card-image-container {
+    display: none;
+  }
+
+  .card-container > swm-card {
+    width: 100%;
+  }
+}
+
+#nssj-card swm-card-header {
+  background-image: url('/assets/nssj/grass-tile.webp');
+}
+
+#opoperation-card swm-card-header {
+  background-image: url('/assets/opoperation/chalkboard.webp');
+}

@@ -1,0 +1,24 @@
+:host {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 15px;
+}
+
+:host /deep/ a,
+:host /deep/ button {
+  padding: 14px;
+  border: none;
+
+  background: none;
+
+  color: #2196F3;
+  font-size: 12pt;
+  font-weight: 200;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}

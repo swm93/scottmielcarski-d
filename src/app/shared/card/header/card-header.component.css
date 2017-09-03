@@ -1,0 +1,9 @@
+:host {
+  position: relative;
+  display: block;
+  height: 160px;
+
+  background-size: auto;
+  background-repeat: both;
+}
+

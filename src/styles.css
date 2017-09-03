@@ -11,6 +11,15 @@ body {
 }
 
 
+hr {
+  margin: 16px 0;
+
+  border-width: 1px 0 0 0;
+  border-color: #ddd;
+  border-style: solid;
+}
+
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #000000;
@@ -19,31 +28,87 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
+  margin: 0.67em 0;
+
   font-size: 1.5em;
   text-transform: uppercase;
 }
 
 h2, .h2 {
+  margin: 0.83em 0;
+
   font-size: 1.3em;
 }
 
 h3, .h3 {
+  margin: 1em 0;
+
   font-size: 1.2em;
 }
 
 h4, .h4 {
+  margin: 1.33em 0;
+
   font-size: 1.0em;
 }
 
 h5, .h5 {
+  margin: 1.67em 0;
+
   font-size: 0.8em;
 }
 
 h6, .h6 {
+  margin: 2.33em 0;
+
   font-size: 0.7em;
+}
+
+
+.caption1 {
+  margin: -0.84em 0 0.67em 0;
+
+  font-size: 1em;
+}
+
+.caption2 {
+  margin: -1em 0 0.83em 0;
+
+  font-size: 0.9em;
+}
+
+.caption3 {
+  margin: -1.17em 0 1em 0;
+
+  font-size: 0.8em;
+}
+
+.caption4 {
+  margin: -1.5em 0 1.33em 0;
+
+  font-size: 0.7em; }
+
+.caption5 {
+  margin: -1.84em 0 1.67em 0;
+
+  font-size: 0.6em;
+}
+
+.caption6 {
+  margin: -2.5em 0 2.33em 0;
+
+  font-size: 0.6em;
 }
 
 
 span {
   font-family: inherit;
 }
+
+
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+

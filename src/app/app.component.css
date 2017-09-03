@@ -2,13 +2,7 @@
   display: block;
   box-sizing: content-box;
   max-width: 968px;
-  margin: auto;
+  margin: 18px auto;
   padding: 0 20px;
-}
-
-.container {
-  position: relative;
-  display: block;
-  width: 100%;
 }
 

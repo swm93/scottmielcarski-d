@@ -1,0 +1,51 @@
+:host {
+  position: relative;
+  display: block;
+  padding: 15px;
+}
+
+:host /deep/ h3,
+:host /deep/ h4,
+:host /deep/ h5,
+:host /deep/ h6 {
+  margin: 0.67em 0;
+}
+
+:host /deep/ h3 {
+  font-size: 1.0em;
+}
+
+:host /deep/ h4 {
+  font-size: 0.8em;
+}
+
+:host /deep/ h5 {
+  font-size: 0.7em;
+}
+
+:host /deep/ h6 {
+  font-size: 0.6em;
+}
+
+:host /deep/ .caption3,
+:host /deep/ .caption4,
+:host /deep/ .caption5,
+:host /deep/ .caption6 {
+  margin: -0.84em 0 0.67em 0;
+}
+
+:host /deep/ .caption3 {
+  font-size: 0.7em;
+}
+
+:host /deep/ .caption4 {
+  font-size: 0.6em;
+}
+
+:host /deep/ .caption5 {
+  font-size: 0.5em;
+}
+
+:host /deep/ .caption6 {
+  font-size: 0.5em;
+}
