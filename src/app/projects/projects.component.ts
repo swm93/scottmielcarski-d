@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 
-import { CardModule } from './shared/card/card.module';
+import { CardModule } from '../shared/card/card.module';
 
 
 
@@ -10,5 +10,5 @@ import { CardModule } from './shared/card/card.module';
   styleUrls: ['./projects.component.css'],
   host: {}
 })
-export class ProjectsComponent{
+export class ProjectsComponent {
 }

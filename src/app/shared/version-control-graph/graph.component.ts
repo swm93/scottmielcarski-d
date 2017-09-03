@@ -11,8 +11,8 @@ import { CommitComponent } from './commit.component';
   host: {}
 })
 export class GraphComponent implements AfterContentInit {
-  @ContentChildren(CommitComponent) nodes : QueryList<CommitComponent>;
-  @ViewChild('canvas') canvas:ElementRef;
+  @ContentChildren(CommitComponent) nodes: QueryList<CommitComponent>;
+  @ViewChild('canvas') canvas: ElementRef;
 
   @Input()
   public nodeLineWidth: number = 2;
