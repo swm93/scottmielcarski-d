@@ -1,22 +1,19 @@
-* {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
-}
-
-
 body {
   margin: 0;
 
   background-color: #efefef;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
 }
 
 
 hr {
   margin: 16px 0;
 
-  border-width: 1px 0 0 0;
-  border-color: #ddd;
   border-style: solid;
+  border-width: 1px 0 0 0;
+  border-color: #dddddd;
 }
 
 
