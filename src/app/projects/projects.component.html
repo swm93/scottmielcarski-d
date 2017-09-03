@@ -33,6 +33,42 @@
 </div>
 
 <div class="card-container">
+  <swm-card id="popcornenabled-card" class="hover">
+    <swm-card-header></swm-card-header>
+    <swm-card-body>
+      <h2>Popcorn Enabled</h2>
+      <p class="caption2">Ruby on Rails, PhoneGap, AWS</p>
+
+      <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+      <hr />
+
+      <vcg-graph>
+        <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
+        <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
+        <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
+        <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
+        <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3']">Last commit</vcg-commit>
+        <vcg-commit name="node6" [depth]="2" [parentNodes]="['node5','node4']">Last commit</vcg-commit>
+        <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
+      </vcg-graph>
+    </swm-card-body>
+    <swm-card-footer>
+      <a href="https://play.google.com/store/apps/details?id=com.popcornenabled.popcornenabled&hl=en" target="_blank">Get It On Google Play</a>
+      <a href="https://itunes.apple.com/ca/app/popcorn-enabled/id1192084329?mt=8" target="_blank">Download on the App Store</a>
+    </swm-card-footer>
+  </swm-card>
+
+  <div class="card-image-container">
+    <picture>
+      <source srcset="/assets/popcornenabled/title.webp" type="image/webp">
+      <source srcset="/assets/popcornenabled/title.png" type="image/png"> 
+      <img src="/assets/popcornenabled/title.png">
+    </picture>
+  </div>
+</div>
+
+<div class="card-container">
   <swm-card id="opoperation-card" class="hover">
     <swm-card-header></swm-card-header>
     <swm-card-body>
