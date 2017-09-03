@@ -9,15 +9,13 @@
 
       <hr />
 
-      <h3>Commits</h3>
+      <h3>Notable Features</h3>
       <vcg-graph>
-        <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
-        <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
-        <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3']">Last commit</vcg-commit>
-        <vcg-commit name="node6" [depth]="2" [parentNodes]="['node5','node4']">Last commit</vcg-commit>
-        <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
+        <vcg-commit name="ecs" [depth]="1">Entity component system as primary data model for game objects</vcg-commit>
+        <vcg-commit name="renderer" [depth]="1">Generic rendering system</vcg-commit>
+        <vcg-commit name="console" [depth]="2" [parentNodes]="['renderer']">Console input for interacting with game objects</vcg-commit>
+        <vcg-commit name="debug" [depth]="2" [parentNodes]="['console']">Debug windows for displaying data</vcg-commit>
+        <vcg-commit name="platform" [depth]="1" [parentNodes]="['renderer']">Cross platform; currently Windows and MacOS</vcg-commit>
       </vcg-graph>
     </swm-card-body>
     <swm-card-footer>
