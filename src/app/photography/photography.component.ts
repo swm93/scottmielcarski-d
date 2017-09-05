@@ -15,6 +15,7 @@ import { Photo } from './models/photo';
 })
 export class PhotographyComponent {
   public photos: Photo[] = [];
+  public activePhoto: Photo = null;
 
   private _key: string = "1fUnJ5m4d1cwbz3aNCBW1mlx72bNS8bCtoUd5-rih7V8";
 
