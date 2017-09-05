@@ -48,3 +48,7 @@
   font-weight: 400;
   text-transform: uppercase;
 }
+
+.links /deep/ a.active {
+  color: #FF5722;
+}
