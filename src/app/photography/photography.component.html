@@ -1,0 +1,16 @@
+<swm-card class="hover" *ngFor="let photo of photos">
+  <swm-card-body>
+    <div class="picture-container container">
+      <picture>
+        <source [srcset]="photo.url" type="image/webp">
+        <source [srcset]="photo.urlFallback" type="image/png"> 
+        <img [src]="photo.urlFallback">
+      </picture>
+    </div>
+
+    <div class="info-container container">
+      <h2>{{photo.name}}</h2>
+      <p>{{photo.takenAt | date:'fullDate'}}</p>
+    </div>
+  </swm-card-body>
+</swm-card>

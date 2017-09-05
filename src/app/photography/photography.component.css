@@ -1,0 +1,19 @@
+swm-card-body {
+  display: flex;
+  padding: 0;
+}
+
+.picture-container {
+  max-width: 600px;
+
+  font-size: 0;
+}
+
+.picture-container img {
+  width: 100%;
+}
+
+.info-container {
+  flex-grow: 1;
+  padding: 15px;
+}
