@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { DatabaseSheet } from './database-sheet';
@@ -24,11 +24,11 @@ export class DatabaseWorkbook {
   public async fetch(http: Http): Promise<DatabaseSheet[]> {
     let sheets: DatabaseSheet[] = [];
     let response: Response = await http.get(this._databaseUrl).toPromise();
-    const data: object = response.json();
+    const data: any = response.json();
 
     this.name = data.feed.title.$t;
 
-    for (let entry: object of data.feed.entry) {
+    for (let entry of data.feed.entry) {
       const linkCount: number = entry.link.length;
 
       let sheet: DatabaseSheet = new DatabaseSheet(this._endpoint, this._key);

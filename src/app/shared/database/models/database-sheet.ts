@@ -1,4 +1,4 @@
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 
@@ -26,16 +26,16 @@ export class DatabaseSheet {
     this._key = key;
   }
 
-  public async fetch(http: Http): Promise<object[]> {
-    let objects: object[] = [];
+  public async fetch(http: Http): Promise<any[]> {
+    let objects: any[] = [];
     let response: Response = await http.get(this._sheetUrl).toPromise();
-    const data: object = response.json();
+    const data: any = response.json();
 
-    for (let entry: object of data.feed.entry) {
-      let obj: object = {};
+    for (let entry of data.feed.entry) {
+      let obj: any = {};
 
-      for (let key: string in entry) {
-        let match: object = key.match(/^gsx\$(\w+)$/);
+      for (let key in entry) {
+        let match: any = key.match(/^gsx\$(\w+)$/);
 
         if (match !== null && match.length > 1) {
           obj[match[1]] = entry[key].$t;

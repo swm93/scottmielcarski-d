@@ -16,7 +16,7 @@ export class DatabaseService {
   private _workbook: DatabaseWorkbook;
   private _sheets: DatabaseSheet[];
 
-  private _sheetDataCache: Map<string, object[]> = new Map<string, object[]>;
+  private _sheetDataCache: Map<string, any[]> = new Map<string, any[]>();
 
 
 
@@ -28,15 +28,15 @@ export class DatabaseService {
     this._http = http;
   }
 
-  public async fetch(tableName: string): Promise<object[]> {
+  public async fetch(tableName: string): Promise<any[]> {
     if (!this._sheetDataCache.has(tableName)) {
       if (this._sheets === undefined) {
         this._sheets = await this._workbook.fetch(this._http);
       }
 
-      for (let sheet: DatabaseSheet of this._sheets) {
+      for (let sheet of this._sheets) {
         if (sheet.name === tableName) {
-          let data: object[] = await sheet.fetch(this._http);
+          let data: any[] = await sheet.fetch(this._http);
 
           this._sheetDataCache.set(tableName, data);
           break;

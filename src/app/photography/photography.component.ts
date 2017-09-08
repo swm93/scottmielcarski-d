@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 
 import { CardModule } from '../shared/card/card.module';
 
+import { Photo } from './models/photo';
 import { PhotoService } from './models/photo-service';
 
 
