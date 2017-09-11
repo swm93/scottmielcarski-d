@@ -1,0 +1,17 @@
+{
+  "short_name": "Scott",
+  "name": "Scott Mielcarski",
+  "icons": [
+    {
+      "src":"",
+      "sizes": "",
+      "type": ""
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "",
+  "background_color": "#efefef",
+  "theme_color": "#ff5722",
+  "display": "browser"
+}
