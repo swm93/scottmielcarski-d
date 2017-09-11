@@ -4,7 +4,7 @@
       <picture>
         <source [srcset]="photo.url" type="image/webp">
         <source [srcset]="photo.urlFallback" type="image/png"> 
-        <img [src]="photo.urlFallback">
+        <img [src]="photo.urlFallback" [alt]="photo.name">
       </picture>
     </div>
 
@@ -21,7 +21,7 @@
     <picture>
       <source [srcset]="activePhoto.url" type="image/webp">
       <source [srcset]="activePhoto.urlFallback" type="image/png"> 
-      <img [src]="activePhoto.urlFallback">
+      <img [src]="activePhoto.urlFallback" [alt]="activePhoto.name">
     </picture>
   </div>
 </div>
