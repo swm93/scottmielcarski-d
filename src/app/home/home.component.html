@@ -11,9 +11,14 @@
     </div>
 
     <div #detailContainer id="detail-container" class="hideable hidden" [class.hidden]="isTextShown">
-      <p>name: <ng-container *ngTemplateOutlet="nameTemplate"></ng-container></p>
-      <p>age: <ng-container *ngTemplateOutlet="ageTemplate"></ng-container></p>
-      <p>location: <ng-container *ngTemplateOutlet="locationTemplate"></ng-container></p>
+      <dl>
+        <dt>name</dt>
+        <dd><ng-container *ngTemplateOutlet="nameTemplate"></ng-container></dd>
+        <dt>age</dt>
+        <dd><ng-container *ngTemplateOutlet="ageTemplate"></ng-container></dd>
+        <dt>location</dt>
+        <dd><ng-container *ngTemplateOutlet="locationTemplate"></ng-container></dd>
+      </dl>
     </div>
 
     <div #animationContainer id="animation-container">

@@ -31,13 +31,9 @@
   visibility: hidden;
 }
 
-swm-card {
-}
-
 swm-card-body {
   transition: height 0.2s ease-in-out;
 }
-
 
 .hideable {
   opacity: 1;
