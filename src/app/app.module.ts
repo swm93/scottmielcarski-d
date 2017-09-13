@@ -17,6 +17,9 @@ import { VersionControlGraphModule } from './shared/version-control-graph/versio
 
 import { DatabaseService } from './shared/database/database-service'
 
+import { ExpandNumber } from './shared/expand-number/expand-number.pipe';
+import { YearDiff } from './shared/year-diff/year-diff.pipe';
+
 
 
 @NgModule({
@@ -26,6 +29,8 @@ import { DatabaseService } from './shared/database/database-service'
     DevelopmentComponent,
     PhotographyComponent,
     ResumeComponent,
+    ExpandNumber,
+    YearDiff,
     PdfViewerComponent
   ],
   imports: [

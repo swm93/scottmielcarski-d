@@ -1,0 +1,52 @@
+:host {
+  position: relative;
+  display: block;
+}
+
+#detail-container,
+#text-container {
+  padding: 15px;
+}
+
+#toggle-text-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: -5px -5px 0 0;
+  z-index: 1;
+
+  background-color: #ff5722;
+
+  transition: top 0.5s ease-in-out;
+}
+
+#animation-container > .detail-text {
+  display: none;
+  position: absolute;
+
+  transition:
+    top 0.5s ease-in-out,
+    left 0.5s ease-in-out;
+}
+
+#detail-container .detail-text {
+  visibility: hidden;
+}
+
+
+.hideable {
+  opacity: 1;
+
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0s linear;
+}
+
+.hideable.hidden {
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    opacity 0.5s ease-in-out,
+    visibility 0s linear 0.5s;
+}
