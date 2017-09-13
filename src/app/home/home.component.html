@@ -4,22 +4,22 @@
 
 <button #toggleTextButton id="toggle-text-button" class="fab" (click)="isTextShown = !isTextShown">T</button>
 
-<swm-card class="hideable" [class.hidden]="!isTextShown">
-  <div #textContainer id="text-container">
-    <p>My name is <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>. I'm a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>.</p>
-  </div>
-</swm-card>
+<swm-card>
+  <swm-card-body [style.height.px]="height">
+    <div #textContainer id="text-container" class="hideable" [class.hidden]="!isTextShown">
+      <p>My name is <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>. I'm a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>.</p>
+    </div>
 
-<swm-card class="hideable" [class.hidden]="isTextShown">
-  <div #detailContainer id="detail-container">
-    <p>name: <ng-container *ngTemplateOutlet="nameTemplate"></ng-container></p>
-    <p>age: <ng-container *ngTemplateOutlet="ageTemplate"></ng-container></p>
-    <p>location: <ng-container *ngTemplateOutlet="locationTemplate"></ng-container></p>
-  </div>
-</swm-card>
+    <div #detailContainer id="detail-container" class="hideable hidden" [class.hidden]="isTextShown">
+      <p>name: <ng-container *ngTemplateOutlet="nameTemplate"></ng-container></p>
+      <p>age: <ng-container *ngTemplateOutlet="ageTemplate"></ng-container></p>
+      <p>location: <ng-container *ngTemplateOutlet="locationTemplate"></ng-container></p>
+    </div>
 
-<div #animationContainer id="animation-container">
-  <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>
-  <ng-container *ngTemplateOutlet="ageTemplate"></ng-container>
-  <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>
-</div>
+    <div #animationContainer id="animation-container">
+      <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>
+      <ng-container *ngTemplateOutlet="ageTemplate"></ng-container>
+      <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>
+    </div>
+  </swm-card-body>
+</swm-card>

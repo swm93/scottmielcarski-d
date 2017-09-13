@@ -19,6 +19,20 @@ export class HomeComponent {
 
   public birthDate: string = "July 21, 1993";
 
+  public get height(): number {
+    let result: number;
+
+    if (this.isTextShown) {
+      result = this.textContainer.nativeElement.offsetHeight;
+    }
+    else {
+      result = this.detailContainer.nativeElement.offsetHeight;
+    }
+
+    return result;
+  }
+  public set height(value: number) {}
+
   public get isTextShown(): boolean {
     return this._isTextShown;
   }
@@ -42,16 +56,12 @@ export class HomeComponent {
     this.animateSet(this.nameEls, false);
     this.animateSet(this.ageEls, false);
     this.animateSet(this.locationEls, false);
-
-    this.toggleTextButton.nativeElement.style.top = 0;
   }
 
   private hideText() {
     this.animateSet(this.nameEls, true);
     this.animateSet(this.ageEls, true);
     this.animateSet(this.locationEls, true);
-
-    this.toggleTextButton.nativeElement.style.top = this.detailContainer.nativeElement.offsetTop - 15 + 'px';
   }
 
   private animateSet(elSet: QueryList<ElementRef>, toDetail: boolean) {
@@ -91,15 +101,20 @@ export class HomeComponent {
   }
 
   private animate(animEl: ElementRef, fromEl: ElementRef, toEl: ElementRef) {
-    animEl.nativeElement.style.top = fromEl.nativeElement.offsetTop + 'px';
-    animEl.nativeElement.style.left = fromEl.nativeElement.offsetLeft + 'px';
+    const fromTop: number = fromEl.nativeElement.offsetTop + fromEl.nativeElement.offsetParent.offsetTop;
+    const toTop: number = toEl.nativeElement.offsetTop + toEl.nativeElement.offsetParent.offsetTop;
+    const fromLeft: number = fromEl.nativeElement.offsetLeft + fromEl.nativeElement.offsetParent.offsetLeft;
+    const toLeft: number = toEl.nativeElement.offsetLeft + toEl.nativeElement.offsetParent.offsetLeft;
+
+    animEl.nativeElement.style.top = fromTop + 'px';
+    animEl.nativeElement.style.left = fromLeft + 'px';
     animEl.nativeElement.style.display = 'block';
 
     fromEl.nativeElement.style.visibility = 'hidden';
 
     setTimeout(() => {
-      animEl.nativeElement.style.top = toEl.nativeElement.offsetTop + 'px';
-      animEl.nativeElement.style.left = toEl.nativeElement.offsetLeft + 'px';
+      animEl.nativeElement.style.top = toTop + 'px';
+      animEl.nativeElement.style.left = toLeft + 'px';
     }, 0);
 
     setTimeout(() => {

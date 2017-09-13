@@ -5,7 +5,7 @@
 
 #detail-container,
 #text-container {
-  padding: 15px;
+  position: absolute;
 }
 
 #toggle-text-button {
@@ -16,8 +16,6 @@
   z-index: 1;
 
   background-color: #ff5722;
-
-  transition: top 0.5s ease-in-out;
 }
 
 #animation-container > .detail-text {
@@ -25,12 +23,19 @@
   position: absolute;
 
   transition:
-    top 0.5s ease-in-out,
-    left 0.5s ease-in-out;
+    top 0.3s ease-in-out,
+    left 0.3s ease-in-out;
 }
 
 #detail-container .detail-text {
   visibility: hidden;
+}
+
+swm-card {
+}
+
+swm-card-body {
+  transition: height 0.2s ease-in-out;
 }
 
 
@@ -47,6 +52,6 @@
   opacity: 0;
 
   transition:
-    opacity 0.5s ease-in-out,
-    visibility 0s linear 0.5s;
+    opacity 0.2s ease-in-out,
+    visibility 0s linear 0.2s;
 }
