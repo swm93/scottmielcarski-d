@@ -6,6 +6,10 @@
 #detail-container,
 #text-container {
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 15px;
 }
 
 #toggle-text-button {
