@@ -101,25 +101,35 @@ export class HomeComponent {
   }
 
   private animate(animEl: ElementRef, fromEl: ElementRef, toEl: ElementRef) {
-    const fromTop: number = fromEl.nativeElement.offsetTop + fromEl.nativeElement.offsetParent.offsetTop;
-    const toTop: number = toEl.nativeElement.offsetTop + toEl.nativeElement.offsetParent.offsetTop;
-    const fromLeft: number = fromEl.nativeElement.offsetLeft + fromEl.nativeElement.offsetParent.offsetLeft;
-    const toLeft: number = toEl.nativeElement.offsetLeft + toEl.nativeElement.offsetParent.offsetLeft;
+    const fromTop: number = fromEl.nativeElement.offsetTop;
+    const toTop: number = toEl.nativeElement.offsetTop;
+    const fromLeft: number = fromEl.nativeElement.offsetLeft;
+    const toLeft: number = toEl.nativeElement.offsetLeft;
+    const fromHeight: number = fromEl.nativeElement.offsetHeight;
+    const toHeight: number = toEl.nativeElement.offsetHeight;
+
 
     animEl.nativeElement.style.top = fromTop + 'px';
-    animEl.nativeElement.style.left = fromLeft + 'px';
+    animEl.nativeElement.style.textIndent = fromLeft + 'px';
+    animEl.nativeElement.style.height = fromHeight + 'px';
     animEl.nativeElement.style.display = 'block';
 
     fromEl.nativeElement.style.visibility = 'hidden';
+    toEl.nativeElement.style.visibility = 'hidden';
 
     setTimeout(() => {
       animEl.nativeElement.style.top = toTop + 'px';
-      animEl.nativeElement.style.left = toLeft + 'px';
+      animEl.nativeElement.style.textIndent = toLeft + 'px';
+      animEl.nativeElement.style.height = toHeight + 'px';
     }, 0);
 
-    setTimeout(() => {
-      toEl.nativeElement.style.visibility = 'visible';
-      animEl.nativeElement.style.display = 'none';
-    }, 500);
+    animEl.nativeElement.addEventListener(
+      "transitionend",
+      () => {
+        toEl.nativeElement.style.visibility = 'visible';
+        animEl.nativeElement.style.display = 'none';
+      },
+      false
+    );
   }
 }
