@@ -1,5 +1,15 @@
-<div class="links">
-  <ng-content></ng-content>
+<div id="header">
+  <ng-content select="[header]"></ng-content>
+  <button id="expand-menu-button" (click)="isOpen = !isOpen">☰</button>
+  <div id="horizontal-line"></div>
 </div>
 
-<div id="horizontal-line"></div>
+<div id="links-container">
+  <div id="links-left" class="links">
+    <ng-content></ng-content>
+  </div>
+  <div id="links-right" class="links">
+    <ng-content select="[right]"></ng-content>
+  </div>
+</div>
+

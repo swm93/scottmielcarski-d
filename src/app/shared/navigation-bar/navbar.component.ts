@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 
@@ -6,9 +6,10 @@ import { Component, Input } from '@angular/core';
   selector: 'swm-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  host: {}
+  host: {
+    '[class.open]': 'isOpen'
+  }
 })
-export class NavbarComponent{
-  @Input()
-  public title: string = "";
+export class NavbarComponent {
+  public isOpen: boolean = false;
 }

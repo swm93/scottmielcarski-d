@@ -1,0 +1,11 @@
+<ng-template #contentTemplate>
+  <ng-content></ng-content>
+</ng-template>
+
+<a *ngIf="isRouterLink" id="link" [routerLink]="link" [routerLinkActive]="'active'">
+  <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+</a>
+<a *ngIf="!isRouterLink" id="link" [attr.href]="link" target="_blank" rel="noopener">
+  <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+</a>
+
