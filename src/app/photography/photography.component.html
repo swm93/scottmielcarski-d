@@ -17,7 +17,7 @@
 
 <div id="active-card-container" *ngIf="activePhoto">
   <div class="card">
-    <button class="close-btn fab" (click)="activePhoto = null">✕</button>
+    <button class="close-btn fab material-icons" (click)="activePhoto = null">close</button>
     <picture>
       <source [srcset]="activePhoto.url" type="image/webp">
       <source [srcset]="activePhoto.urlFallback" type="image/png"> 

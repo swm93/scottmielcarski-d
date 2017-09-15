@@ -2,7 +2,7 @@
 <ng-template #ageTemplate><strong #age class="detail-text">{{ birthDate | yearDiff | expandNumber }}</strong></ng-template>
 <ng-template #locationTemplate><strong #location class="detail-text">British Columbia</strong></ng-template>
 
-<button #toggleTextButton id="toggle-text-button" class="fab" (click)="isTextShown = !isTextShown">T</button>
+<button #toggleTextButton id="toggle-text-button" class="fab material-icons" (click)="isTextShown = !isTextShown">cached</button>
 
 <swm-card>
   <swm-card-body [style.height.px]="height">

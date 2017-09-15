@@ -43,14 +43,14 @@
 
 #expand-button {
   display: none;
-  padding: 0 6px;
+  padding: 2px 6px;
   margin: 0 4px;
   border: none;
 
   background-color: #efefef;
   outline: none;
 
-  font-size: 21px;
+  font-size: 24px;
 }
 
 @media (max-width: 840px) {
