@@ -7,3 +7,8 @@
   background-repeat: both;
 }
 
+@media (max-width: 840px) {
+  :host {
+    height: 80px;
+  }
+}

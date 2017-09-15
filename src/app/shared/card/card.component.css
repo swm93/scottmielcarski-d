@@ -76,10 +76,3 @@
 
   background-color: orange;
 }
-
-:host > .card-content /deep/ swm-card-body {
-}
-
-:host > .card-content /deep/ swm-card-footer {
-  flex: 0 0 48px;
-}

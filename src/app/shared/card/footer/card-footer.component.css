@@ -1,14 +1,15 @@
 :host {
   position: relative;
-  display: flex;
+  display: block;
   box-sizing: border-box;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 10px 15px;
+  padding: 0 15px;
+
+  text-align: right;
 }
 
 :host /deep/ a,
 :host /deep/ button {
+  display: inline-block;
   padding: 14px;
   border: none;
 
