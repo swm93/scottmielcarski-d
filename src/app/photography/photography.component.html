@@ -1,5 +1,5 @@
-<div id="cards-container" [class.active]="!activePhoto">
-  <div class="card-container" *ngFor="let photo of photos" (click)="activePhoto = photo">
+<div id="cards-container" [class.active]="activePhoto">
+  <div class="card-container" *ngFor="let photo of photos" (click)="activate(photo)">
     <div class="picture-container card">
       <picture>
         <source [srcset]="photo.url" type="image/webp">

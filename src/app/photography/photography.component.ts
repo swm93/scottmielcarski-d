@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
 import { CardModule } from '../shared/card/card.module';
@@ -21,6 +21,10 @@ export class PhotographyComponent implements OnInit {
 
   private _photoService: PhotoService;
 
+  private get _canActivate(): boolean {
+    return window.innerWidth > 480;
+  }
+
 
 
   constructor(photoService: PhotoService) {
@@ -29,5 +33,18 @@ export class PhotographyComponent implements OnInit {
 
   public async ngOnInit() {
     this.photos = await this._photoService.getAll();
+  }
+
+  public activate(photo: Photo) {
+    if (this._canActivate) {
+      this.activePhoto = photo;
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  public onResize(event) {
+    if (this.activePhoto && !this._canActivate) {
+      this.activePhoto = null;
+    }
   }
 }
