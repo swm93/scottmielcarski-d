@@ -1,9 +1,5 @@
-<swm-card id="resume-card" class="hover" [style.visibility]="isResumeLoaded ? 'visible' : 'hidden'">
-  <swm-card-body>
-    <pdf-viewer id="resume" [src]="'https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf'" [show-all]="true" [original-size]="false" (after-load-complete)="resumeLoaded($event)"></pdf-viewer>
-  </swm-card-body>
-  <swm-card-footer>
-    <a href="https://github.com/swm93/employment-docs" target="_blank" rel="noopener">View LaTeX Classes on Github</a>
-    <a href="https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf" target="_blank">Download Resume</a>
-  </swm-card-footer>
-</swm-card>
+<div id="pdf-container" [style.visibility]="isResumeLoaded ? 'visible' : 'hidden'">
+  <pdf-viewer id="resume" [src]="'https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf'" [show-all]="true" [original-size]="false" (after-load-complete)="resumeLoaded($event)"></pdf-viewer>
+  <a id="download-button" class="fab material-icons" href="https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf" target="_blank">file_download</a>
+  <a id="latex-download-button" class="button" href="https://github.com/swm93/employment-docs" target="_blank" rel="noopener">View LaTeX Classes</a>
+</div>
