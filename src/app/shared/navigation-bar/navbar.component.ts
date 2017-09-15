@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 
 
@@ -11,5 +11,15 @@ import { Component } from '@angular/core';
   }
 })
 export class NavbarComponent {
+  @ViewChild('expandButton')
+  private _expandButton: ElementRef;
   public isOpen: boolean = false;
+
+
+  @HostListener('window:click', ['$event'])
+  public onClick(event) {
+    if (event.target !== this._expandButton.nativeElement) {
+      this.isOpen = false;
+    }
+  }
 }

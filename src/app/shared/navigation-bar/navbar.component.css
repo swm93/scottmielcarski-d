@@ -7,6 +7,12 @@
   padding: 0 10px;
 }
 
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 #links-container {
   display: flex;
   flex-direction: row;
@@ -35,9 +41,10 @@
   background-color: #777;
 }
 
-#expand-menu-button {
+#expand-button {
   display: none;
-  padding: 0 10px;
+  padding: 0 6px;
+  margin: 0 4px;
   border: none;
 
   background-color: #efefef;
@@ -47,42 +54,53 @@
 }
 
 @media (max-width: 840px) {
-  :host,
-  #links-container,
-  .links {
+  :host {
+    padding: 0;
+  }
+
+  #links-container {
+    position: fixed;
+    box-sizing: border-box;
     flex-direction: column;
-    align-items: left;
+    top: 0;
+    left: -372px;
+    width: 362px;
+    height: 100%;
+    padding: 80px 10px 40px 10px;
+    z-index: 100;
+
+    background-color: #333;
+    box-shadow: 10px 0px 20px rgba(0,0,0,0.19), 6px 0px 6px rgba(0,0,0,0.23);
+
+    transition: left 0.3s ease-in-out;
+  }
+
+  #links-left,
+  #links-right {
+    flex-direction: column;
+  }
+
+  :host.open #links-container {
+    left: 0;
   }
 
   #header {
     position: relative;
     width: 100%;
+    padding: 0 8px;
   }
 
-  #links-container {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  #links-left {
-    flex-grow: 0;
-    margin-top: -200px;
-
-    transition: margin-top 0.5s ease-in-out;
-  }
-
-  :host.open #links-left {
-    margin-top: 0;
-  }
-
-  #expand-menu-button {
-    position: absolute;
+  #expand-button {
     display: block;
-    top: 0;
-    right: 12px;
-  }
+    z-index: 110;
 
-  .links /deep/ > * {
-    padding: 4px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 380px) {
+  #links-container {
+    width: 100vw;
+    left: calc(-100vw - 10px);
   }
 }

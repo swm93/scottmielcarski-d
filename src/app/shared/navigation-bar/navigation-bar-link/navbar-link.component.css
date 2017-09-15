@@ -16,6 +16,7 @@
   display: block;
 
   color: #000000;
+  fill: #000000;
 
   font-weight: 100;
   text-transform: lowercase;
@@ -31,4 +32,24 @@
   font-size: 1.5em;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+@media (max-width: 840px) {
+  :host[header] {
+    z-index: 110;
+    margin: 0 4px;
+  }
+
+  :host:not([header]) {
+    margin: 4px;
+
+    background: none;
+
+    font-size: 16pt;
+  }
+
+  #link {
+    color: #ffffff;
+    fill: #ffffff;
+  }
 }

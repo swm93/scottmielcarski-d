@@ -1,6 +1,6 @@
 <div id="header">
+  <button #expandButton id="expand-button" (click)="isOpen = !isOpen">☰</button>
   <ng-content select="[header]"></ng-content>
-  <button id="expand-menu-button" (click)="isOpen = !isOpen">☰</button>
   <div id="horizontal-line"></div>
 </div>
 
@@ -12,4 +12,3 @@
     <ng-content select="[right]"></ng-content>
   </div>
 </div>
-

@@ -6,6 +6,7 @@
 #cards-container {
   display: block;
   column-count: 3;
+  padding: 10px;
 
   opacity: 0.2;
   filter: grayscale(100%);
@@ -98,10 +99,4 @@
 .card-container:nth-child(odd) .info-container h2,
 .card-container:nth-child(odd) .info-container p {
   color: #ffffff;
-}
-
-@media(max-width: 599px) {
-  :host {
-    column-count: 2;
-  }
 }
