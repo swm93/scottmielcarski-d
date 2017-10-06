@@ -1,16 +1,35 @@
-<ng-template #nameTemplate><strong #name class="detail-text">Scott</strong></ng-template>
-<ng-template #ageTemplate><strong #age class="detail-text">{{ birthDate | yearDiff | expandNumber }}</strong></ng-template>
-<ng-template #locationTemplate><strong #location class="detail-text">British Columbia</strong></ng-template>
+<ng-template #imageTemplate>
+  <picture>
+    <source srcset="/assets/portrait/portrait.webp" type="image/webp">
+    <source srcset="/assets/portrait/portrait.png" type="image/png"> 
+    <img #detailContent id="portrait" class="detail-content" src="/assets/portrait/portrait.png" alt="Portrait">
+  </picture>
+</ng-template>
+<ng-template #nameTemplate><strong #detailContent name="name" class="detail-content">Scott</strong></ng-template>
+<ng-template #ageTemplate><strong #detailContent name="age" class="detail-content">{{ birthDate | yearDiff | expandNumber }}</strong></ng-template>
+<ng-template #locationTemplate><strong #detailContent name="location" class="detail-content">British Columbia</strong></ng-template>
+<ng-template #professionalDevelopment1Template><strong #detailContent name="professionalDevelopment1" class="detail-content">web</strong></ng-template>
+<ng-template #professionalDevelopment2Template><strong #detailContent name="professionalDevelopment2" class="detail-content">mobile</strong></ng-template>
+<ng-template #professionalDevelopment3Template><strong #detailContent name="professionalDevelopment3" class="detail-content">Windows</strong></ng-template>
+<ng-template #personalDevelopment1Template><strong #detailContent name="personalDevelopment1" class="detail-content">game</strong></ng-template>
+<ng-template #preferredLanguage1Template><strong #detailContent name="preferredLanguage1" class="detail-content">C++</strong></ng-template>
+<ng-template #preferredLanguage2Template><strong #detailContent name="preferredLanguage2" class="detail-content">Swift</strong></ng-template>
+<ng-template #preferredLanguage3Template><strong #detailContent name="preferredLanguage3" class="detail-content">Ruby</strong></ng-template>
+<ng-template #preferredLanguage4Template><strong #detailContent name="preferredLanguage4" class="detail-content">JavaScript</strong></ng-template>
+<ng-template #futureLanguage1Template><strong #detailContent name="futureLanguage1" class="detail-content">Go</strong></ng-template>
+<ng-template #futureLanguage2Template><strong #detailContent name="futureLanguage2" class="detail-content">Haskell</strong></ng-template>
 
 <button #toggleTextButton id="toggle-text-button" class="fab material-icons" (click)="isTextShown = !isTextShown">cached</button>
 
 <swm-card>
   <swm-card-body [style.height.px]="height">
     <div #textContainer id="text-container" class="hideable" [class.hidden]="!isTextShown">
-      <p>My name is <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>. I'm a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>.</p>
+      <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
+      <p>Hi, I’m <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>, a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>. I’ve recently been professionally involved in <ng-container *ngTemplateOutlet="professionalDevelopment1Template"></ng-container>, <ng-container *ngTemplateOutlet="professionalDevelopment2Template"></ng-container> and <ng-container *ngTemplateOutlet="professionalDevelopment3Template"></ng-container> development, and have been fostering a passion for <ng-container *ngTemplateOutlet="personalDevelopment1Template"></ng-container> development in my spare time. Currently I prefer working in <ng-container *ngTemplateOutlet="preferredLanguage1Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage2Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage3Template"></ng-container> and <ng-container *ngTemplateOutlet="preferredLanguage4Template"></ng-container>, but intend on learning <ng-container *ngTemplateOutlet="futureLanguage1Template"></ng-container> and <ng-container *ngTemplateOutlet="futureLanguage2Template"></ng-container> in the near future.</p>
     </div>
 
     <div #detailContainer id="detail-container" class="hideable hidden" [class.hidden]="isTextShown">
+      <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
       <dl>
         <dt>name</dt>
         <dd><ng-container *ngTemplateOutlet="nameTemplate"></ng-container></dd>
@@ -18,13 +37,38 @@
         <dd><ng-container *ngTemplateOutlet="ageTemplate"></ng-container></dd>
         <dt>location</dt>
         <dd><ng-container *ngTemplateOutlet="locationTemplate"></ng-container></dd>
+        <dt>professional development platforms</dt>
+        <dd><ng-container *ngTemplateOutlet="professionalDevelopment1Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="professionalDevelopment2Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="professionalDevelopment3Template"></ng-container></dd>
+        <dt>personal development platforms</dt>
+        <dd><ng-container *ngTemplateOutlet="personalDevelopment1Template"></ng-container></dd>
+        <dt>preferred languages</dt>
+        <dd><ng-container *ngTemplateOutlet="preferredLanguage1Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="preferredLanguage2Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="preferredLanguage3Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="preferredLanguage4Template"></ng-container></dd>
+        <dt>future languages</dt>
+        <dd><ng-container *ngTemplateOutlet="futureLanguage1Template"></ng-container></dd>
+        <dd><ng-container *ngTemplateOutlet="futureLanguage2Template"></ng-container></dd>
       </dl>
     </div>
 
     <div #animationContainer id="animation-container">
+      <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
       <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>
       <ng-container *ngTemplateOutlet="ageTemplate"></ng-container>
       <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>
+      <ng-container *ngTemplateOutlet="professionalDevelopment1Template"></ng-container>
+      <ng-container *ngTemplateOutlet="professionalDevelopment2Template"></ng-container>
+      <ng-container *ngTemplateOutlet="professionalDevelopment3Template"></ng-container>
+      <ng-container *ngTemplateOutlet="personalDevelopment1Template"></ng-container>
+      <ng-container *ngTemplateOutlet="preferredLanguage1Template"></ng-container>
+      <ng-container *ngTemplateOutlet="preferredLanguage2Template"></ng-container>
+      <ng-container *ngTemplateOutlet="preferredLanguage3Template"></ng-container>
+      <ng-container *ngTemplateOutlet="preferredLanguage4Template"></ng-container>
+      <ng-container *ngTemplateOutlet="futureLanguage1Template"></ng-container>
+      <ng-container *ngTemplateOutlet="futureLanguage2Template"></ng-container>
     </div>
   </swm-card-body>
 </swm-card>

@@ -13,9 +13,7 @@ export class HomeComponent {
   @ViewChild('textContainer') textContainer: ElementRef;
   @ViewChild('detailContainer') detailContainer: ElementRef;
   @ViewChild('animationContainer') animationContainer: ElementRef;
-  @ViewChildren('name') nameEls: QueryList<ElementRef>;
-  @ViewChildren('age') ageEls: QueryList<ElementRef>;
-  @ViewChildren('location') locationEls: QueryList<ElementRef>;
+  @ViewChildren('detailContent') detailContentEls: QueryList<ElementRef>;
 
   public birthDate: string = "July 21, 1993";
 
@@ -38,12 +36,7 @@ export class HomeComponent {
   }
   public set isTextShown(value: boolean) {
     if (value !== this._isTextShown) {
-      if (value) {
-        this.showText();
-      }
-      else {
-        this.hideText();
-      }
+      this.toggleText(value);
     }
 
     this._isTextShown = value;
@@ -52,21 +45,30 @@ export class HomeComponent {
   private _isTextShown: boolean = true;
 
 
-  private showText() {
-    this.animateSet(this.nameEls, false);
-    this.animateSet(this.ageEls, false);
-    this.animateSet(this.locationEls, false);
+  private toggleText(value: boolean) {
+    const els: ElementRef[] = this.detailContentEls.toArray();
+    var sets: Map<string, ElementRef[]> = new Map<string, ElementRef[]>();
+
+    for (let el of els) {
+      let nameAttribute: string = el.nativeElement.getAttribute('name');
+
+      if (!sets.has(nameAttribute)) {
+        sets.set(nameAttribute, []);
+      }
+
+      var set: ElementRef[] = sets.get(nameAttribute);
+      set.push(el);
+    }
+
+    let setIterator = sets.values();
+    var setResult: IteratorResult<ElementRef[]> = setIterator.next();
+    while (!setResult.done) {
+      this.animateSet(setResult.value, !value);
+      setResult = setIterator.next();
+    }
   }
 
-  private hideText() {
-    this.animateSet(this.nameEls, true);
-    this.animateSet(this.ageEls, true);
-    this.animateSet(this.locationEls, true);
-  }
-
-  private animateSet(elSet: QueryList<ElementRef>, toDetail: boolean) {
-    const els: ElementRef[] = elSet.toArray();
-
+  private animateSet(els: ElementRef[], toDetail: boolean) {
     if (els.length >= 3) {
       let animEl: ElementRef;
       let fromEl: ElementRef;
@@ -110,8 +112,13 @@ export class HomeComponent {
 
 
     animEl.nativeElement.style.top = fromTop + 'px';
-    animEl.nativeElement.style.textIndent = fromLeft + 'px';
-    animEl.nativeElement.style.height = fromHeight + 'px';
+    if (animEl.nativeElement.textContent === "") {
+      animEl.nativeElement.style.left = fromLeft + 'px';
+    }
+    else {
+      animEl.nativeElement.style.textIndent = fromLeft + 'px';
+      animEl.nativeElement.style.height = fromHeight + 'px';
+    }
     animEl.nativeElement.style.display = 'block';
 
     fromEl.nativeElement.style.visibility = 'hidden';
@@ -119,8 +126,13 @@ export class HomeComponent {
 
     setTimeout(() => {
       animEl.nativeElement.style.top = toTop + 'px';
-      animEl.nativeElement.style.textIndent = toLeft + 'px';
-      animEl.nativeElement.style.height = toHeight + 'px';
+      if (animEl.nativeElement.textContent === "") {
+        animEl.nativeElement.style.left = toLeft + 'px';
+      }
+      else {
+        animEl.nativeElement.style.textIndent = toLeft + 'px';
+        animEl.nativeElement.style.height = toHeight + 'px';
+      }
     }, 0);
 
     animEl.nativeElement.addEventListener(
