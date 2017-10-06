@@ -5,7 +5,7 @@
       <h2>Not So Slim Jim</h2>
       <p class="caption2">C++, Lua, OpenGl</p>
 
-      <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="body-text">A 2D game engine focused on flexibility and ease of use. This project was started in 2013 with the sole purpose of gaining a deep and practical understanding of what goes in to building a game.</p>
 
       <hr />
 
@@ -39,18 +39,18 @@
       <h2>Popcorn Enabled</h2>
       <p class="caption2">Ruby on Rails, PhoneGap, AWS</p>
 
-      <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="body-text">A mobile app intended to provide a simple means for purchasing goods from stadiums, bars, etc; customers order from their phones and receive a notification when their purchase is ready for pickup.</p>
 
       <hr />
 
       <vcg-graph>
-        <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
-        <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
-        <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3']">Last commit</vcg-commit>
-        <vcg-commit name="node6" [depth]="2" [parentNodes]="['node5','node4']">Last commit</vcg-commit>
-        <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
+        <vcg-commit name="purchase" [depth]="1">Purchase goods directly from your phone</vcg-commit>
+        <vcg-commit name="notifications" [depth]="1">Push or SMS notificaitons when orders status changes</vcg-commit>
+        <vcg-commit name="unified" [depth]="2">Single app for both customer and vendor interfaces</vcg-commit>
+        <vcg-commit name="vendor" [depth]="3">Vendors manage orders from directly within the app</vcg-commit>
+        <vcg-commit name="analitics" [depth]="3">Analytics available for download as Excel sheet</vcg-commit>
+        <vcg-commit name="integration" [depth]="2" [parentNodes]="['unified']">Integration for venues is seamless and free</vcg-commit>
+        <vcg-commit name="realtime" [depth]="1" [parentNodes]="['notifications','integration']">Orders appear in realtime on vendor interface</vcg-commit>
       </vcg-graph>
     </swm-card-body>
     <swm-card-footer>
@@ -75,22 +75,19 @@
       <h2>Op Operation</h2>
       <p class="caption2">Swift, SpriteKit</p>
 
-      <p class="body-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="body-text">Educational math game where players race against the clock to find sets of numbers that sum to a specific value.</p>
 
       <hr />
 
       <vcg-graph>
-        <vcg-commit name="popcornEnabled" [depth]="1">First commit</vcg-commit>
-        <vcg-commit name="agentsOfDiscovery" [depth]="1">Last commit</vcg-commit>
-        <vcg-commit name="node3" [depth]="2" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node4" [depth]="3" [parentNodes]="['popcornEnabled']">Last commit</vcg-commit>
-        <vcg-commit name="node5" [depth]="2" [parentNodes]="['node3']">Last commit</vcg-commit>
-        <vcg-commit name="node6" [depth]="2" [parentNodes]="['node5','node4']">Last commit</vcg-commit>
-        <vcg-commit name="node7" [depth]="1" [parentNodes]="['agentsOfDiscovery', 'node6']">Last commit</vcg-commit>
+        <vcg-commit name="modern" [depth]="1">Developed in modern Swift version; v4</vcg-commit>
+        <vcg-commit name="leaderboards" [depth]="1">Scores saved in leaderboards via Game Center integration</vcg-commit>
+        <vcg-commit name="themeable" [depth]="2" [parentNodes]="['modern']">Highly themeable; styles decoupled from code</vcg-commit>
+        <vcg-commit name="randomized" [depth]="1" [parentNodes]="['themable', 'leaderboards']">Randomized; every game is unique</vcg-commit>
       </vcg-graph>
     </swm-card-body>
     <swm-card-footer>
-      <a href="#" target="_blank">Download on the App Store</a>
+      <a href="https://itunes.apple.com/ca/app/op-operation/id935417402?mt=8" target="_blank">Download on the App Store</a>
     </swm-card-footer>
   </swm-card>
 
