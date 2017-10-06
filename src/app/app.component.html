@@ -1,4 +1,4 @@
-<swm-navbar>
+<swm-navbar id="header">
   <swm-navbar-link header link="/">Scott Mielcarski</swm-navbar-link>
   <swm-navbar-link link="/development">Development</swm-navbar-link>
   <swm-navbar-link link="/photography">Photography</swm-navbar-link>
@@ -20,6 +20,10 @@
   </swm-navbar-group>
 </swm-navbar>
 
-<div id="page" class="container">
+<div id="main" class="container">
   <router-outlet></router-outlet>
+</div>
+
+<div id="footer">
+  <span>Copyright © {{ currentDate | date: 'y' }} Scott Mielcarski</span>
 </div>
