@@ -49,3 +49,18 @@
 :host /deep/ .caption6 {
   font-size: 0.5em;
 }
+
+:host /deep/ .body-header {
+  display: flex;
+  flex-direction: row;
+}
+
+:host /deep/ .body-header > .body-title {
+  flex: 1;
+}
+
+:host /deep/ .body-header > .icons {
+  margin: 21px 0;
+
+  font-size: 20pt;
+}
