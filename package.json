@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "sw": "sw-precache --root=dist --config=sw-precache-config.js",
     "static-serve": "cd dist && live-server --port=4200 --host=localhost --entry-file=/index.html",
-    "deploy": "ng build --prod && npm run sw && cd ../scottmielcarski && find . \\! -path \"*/.git/*\" \\! -path \"*/.git\" -delete && cp -r ../scottmielcarski-d/dist/ . && cp ./index.html ./404.html && git add . && git commit -m \"Deploy scottmielcarski-d\" && git push origin master"
+    "deploy": "ng build --prod && npm run sw && cd ../scottmielcarski && find . \\! -path \"*/.git/*\" \\! -path \"*/.git\" \\! -path \"*/CNAME\" -delete && cp -r ../scottmielcarski-d/dist/ . && cp ./index.html ./404.html && git add . && git commit -m \"Deploy scottmielcarski-d\" && git push origin master"
   },
   "private": true,
   "dependencies": {
