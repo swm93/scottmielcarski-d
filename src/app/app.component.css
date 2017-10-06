@@ -2,17 +2,20 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  max-width: 968px;
   min-height: 100vh;
 }
 
 #header {
-  margin: 20px;
+  width: 100%;
+  max-width: 968px;
+  margin: 20px auto;
 }
 
 #main {
   flex: 1;
   box-sizing: border-box;
+  max-width: 968px;
+  margin: auto;
   padding: 0 20px;
 }
 
