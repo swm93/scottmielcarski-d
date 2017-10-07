@@ -1,3 +1,7 @@
+@import "variables";
+
+
+
 :host {
   position: relative;
   display: block;
@@ -5,10 +9,8 @@
 
   background-size: auto;
   background-repeat: both;
-}
 
-@media (max-width: 840px) {
-  :host {
+  @media (max-width: 840px) {
     height: 80px;
   }
 }

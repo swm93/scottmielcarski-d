@@ -1,55 +1,60 @@
+@import "variables";
+
+
+
 :host {
   position: relative;
   display: inline-block;
   margin: 0 4px;
   padding: 0 4px;
 
-  /*TODO(scott): make this a variable*/
-  background-color: #eeeeee;
+  background-color: $background-color;
+
+  &[header] {
+    margin: 0 8px;
+
+    @media (max-width: 840px) {
+      z-index: 110;
+      margin: 0 4px;
+    }
+
+
+    #link {
+      font-size: 1.5em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  &:not([header]) {
+    @media (max-width: 840px) {
+      margin: 4px;
+
+      background: none;
+
+      font-size: 16pt;
+    }
+  }
 }
 
-:host[header] {
-  margin: 0 8px;
-}
 
 #link {
   display: block;
 
-  color: #000000;
-  fill: #000000;
+  color: $text-color;
+  fill: $text-color;
 
   font-weight: 100;
   text-transform: lowercase;
   letter-spacing: 2px;
   text-decoration: none;
-}
 
-#link.active {
-  color: #FF5722;
-}
-
-:host[header] #link {
-  font-size: 1.5em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-@media (max-width: 840px) {
-  :host[header] {
-    z-index: 110;
-    margin: 0 4px;
+  &.active {
+    color: $text-active-color;
   }
 
-  :host:not([header]) {
-    margin: 4px;
-
-    background: none;
-
-    font-size: 16pt;
-  }
-
-  #link {
-    color: #ffffff;
-    fill: #ffffff;
+  @media (max-width: 840px) {
+    color: $drawer-text-color;
+    fill: $drawer-text-color;
   }
 }

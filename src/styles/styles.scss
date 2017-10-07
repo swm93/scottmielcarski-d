@@ -1,7 +1,11 @@
+@import "variables";
+
+
+
 body {
   margin: 0;
 
-  background-color: #efefef;
+  background-color: $background-color;
 
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
@@ -13,13 +17,13 @@ hr {
 
   border-style: solid;
   border-width: 1px 0 0 0;
-  border-color: #dddddd;
+  border-color: $border-color;
 }
 
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #000000;
+  color: $text-color;
   font-weight: 400;
   text-decoration: none;
 }
@@ -63,7 +67,7 @@ h6, .h6 {
 
 
 strong {
-  color: #ff5722;
+  color: $primary-color;
 }
 
 
@@ -126,14 +130,14 @@ dd {
 
 .card {
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
 
-.card.hover {
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
+  &.hover {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
-.card.hover:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+  }
 }
 
 
@@ -148,19 +152,20 @@ dd {
   border-radius: 2px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, .4);
 
-  background-color: #ffffff;
+  background-color: $button-background-color;
 
-  color: #2196F3;
+  color: $button-text-color;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .45);
+  }
 }
 
-.button:hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, .45);
-}
 
 .fab {
   box-sizing: border-box;
@@ -175,10 +180,10 @@ dd {
   user-select: none;
   cursor: pointer;
 
-  background: none;
+  background-color: $fab-background-color;
   outline: none;
 
-  color: #ffffff;
+  color: $fab-text-color;
   font-size: 28px;
   text-decoration: none;
 }

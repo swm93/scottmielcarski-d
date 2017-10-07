@@ -2,7 +2,7 @@
   <picture>
     <source srcset="/assets/portrait/portrait.webp" type="image/webp">
     <source srcset="/assets/portrait/portrait.png" type="image/png"> 
-    <img #detailContent id="portrait" class="detail-content" src="/assets/portrait/portrait.png" alt="Portrait">
+    <img #detailContent class="detail-content" src="/assets/portrait/portrait.png" alt="Portrait">
   </picture>
 </ng-template>
 <ng-template #nameTemplate><strong #detailContent name="name" class="detail-content">Scott</strong></ng-template>
@@ -21,14 +21,14 @@
 
 <button #toggleTextButton id="toggle-text-button" class="fab material-icons" (click)="isTextShown = !isTextShown">cached</button>
 
-<swm-card>
+<swm-card class="hover">
   <swm-card-body [style.height.px]="height">
-    <div #textContainer id="text-container" class="hideable" [class.hidden]="!isTextShown">
+    <div #textContainer id="text-container" class="card-content-container hideable" [class.hidden]="!isTextShown">
       <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
       <p>Hi, I’m <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>, a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>. I’ve recently been professionally involved in <ng-container *ngTemplateOutlet="professionalDevelopment1Template"></ng-container>, <ng-container *ngTemplateOutlet="professionalDevelopment2Template"></ng-container> and <ng-container *ngTemplateOutlet="professionalDevelopment3Template"></ng-container> development, and have been fostering a passion for <ng-container *ngTemplateOutlet="personalDevelopment1Template"></ng-container> development in my spare time. Currently I prefer working in <ng-container *ngTemplateOutlet="preferredLanguage1Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage2Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage3Template"></ng-container> and <ng-container *ngTemplateOutlet="preferredLanguage4Template"></ng-container>, but intend on learning <ng-container *ngTemplateOutlet="futureLanguage1Template"></ng-container> and <ng-container *ngTemplateOutlet="futureLanguage2Template"></ng-container> in the near future.</p>
     </div>
 
-    <div #detailContainer id="detail-container" class="hideable hidden" [class.hidden]="isTextShown">
+    <div #detailContainer id="detail-container" class="card-content-container hideable hidden" [class.hidden]="isTextShown">
       <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
       <dl>
         <dt>name</dt>

@@ -1,75 +1,96 @@
+@import "variables";
+
+
+
 .card-container {
   display: flex;
   margin: 40px 0;
-}
 
-.card-container:first-child {
-  margin-top: 0;
-}
-
-.card-container:last-child {
-  margin-bottom: 0;
-}
-
-
-.card-container > swm-card {
-  width: 70%;
-}
-
-.card-container > .card-image-container {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-container:nth-child(even) > swm-card,
-.card-container:nth-child(odd) > .card-image-container {
-  order: 1;
-}
-
-.card-container:nth-child(odd) > swm-card,
-.card-container:nth-child(even) > .card-image-container {
-  order: 2;
-}
-
-swm-card-body .body-text {
-  color: #777;
-  font-size: 0.9em;
-}
-
-@media(max-width: 599px) {
-  .card-container > .card-image-container {
-    display: none;
+  &:first-child {
+    margin-top: 0;
   }
 
-  .card-container > swm-card {
-    width: 100%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(even) {
+    > swm-card {
+      order: 1;
+    }
+
+
+    > .card-image-container {
+      order: 2;
+    }
+  }
+
+  &:nth-child(odd) {
+    > swm-card {
+      order: 2;
+    }
+
+
+    > .card-image-container {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 840px) {
+    margin: 0;
+  }
+
+
+  > swm-card {
+    width: 70%;
+
+    @media(max-width: 599px) {
+      width: 100%;
+    }
+
+
+    swm-card-body .body-text {
+      color: $text-subtle-color;
+      font-size: 0.9em;
+    }
+  }
+
+
+  > .card-image-container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: 599px) {
+      display: none;
+    }
   }
 }
 
-/deep/ .webp #nssj-card swm-card-header {
-  background-image: url('/assets/nssj/grass-tile.webp');
+
+
+// card header backgrounds
+/deep/ .webp {
+  #nssj-card swm-card-header {
+    background-image: url('/assets/nssj/grass-tile.webp');
+  }
+
+  #opoperation-card swm-card-header {
+    background-image: url('/assets/opoperation/chalkboard.webp');
+  }
 }
 
-/deep/ .no-webp #nssj-card swm-card-header {
-  background-image: url('/assets/nssj/grass-tile.png');
+/deep/ .no-webp {
+  #nssj-card swm-card-header {
+    background-image: url('/assets/nssj/grass-tile.png');
+  }
+
+  #opoperation-card swm-card-header {
+    background-image: url('/assets/opoperation/chalkboard.png');
+  }
 }
 
 #popcornenabled-card swm-card-header {
   background: linear-gradient(to bottom, rgba(251,191,92,1) 0%,rgb(251, 224, 127) 100%);
-}
-
-/deep/ .webp #opoperation-card swm-card-header {
-  background-image: url('/assets/opoperation/chalkboard.webp');
-}
-
-/deep/ .no-webp #opoperation-card swm-card-header {
-  background-image: url('/assets/opoperation/chalkboard.png');
-}
-
-@media (max-width: 840px) {
-  .card-container {
-    margin: 0;
-  }
 }

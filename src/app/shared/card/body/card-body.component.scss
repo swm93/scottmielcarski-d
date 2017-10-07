@@ -1,66 +1,75 @@
+@import "variables";
+
+
+
 :host {
   position: relative;
   display: block;
   padding: 15px;
-}
 
-:host /deep/ h3,
-:host /deep/ h4,
-:host /deep/ h5,
-:host /deep/ h6 {
-  margin: 0.67em 0;
-}
 
-:host /deep/ h3 {
-  font-size: 1.0em;
-}
+  /deep/ h3,
+  /deep/ h4,
+  /deep/ h5,
+  /deep/ h6 {
+    margin: 0.67em 0;
+  }
 
-:host /deep/ h4 {
-  font-size: 0.8em;
-}
+  /deep/ h3 {
+    font-size: 1.0em;
+  }
 
-:host /deep/ h5 {
-  font-size: 0.7em;
-}
+  /deep/ h4 {
+    font-size: 0.8em;
+  }
 
-:host /deep/ h6 {
-  font-size: 0.6em;
-}
+  /deep/ h5 {
+    font-size: 0.7em;
+  }
 
-:host /deep/ .caption3,
-:host /deep/ .caption4,
-:host /deep/ .caption5,
-:host /deep/ .caption6 {
-  margin: -0.84em 0 0.67em 0;
-}
+  /deep/ h6 {
+    font-size: 0.6em;
+  }
 
-:host /deep/ .caption3 {
-  font-size: 0.7em;
-}
 
-:host /deep/ .caption4 {
-  font-size: 0.6em;
-}
+  /deep/ .caption3,
+  /deep/ .caption4,
+  /deep/ .caption5,
+  /deep/ .caption6 {
+    margin: -0.84em 0 0.67em 0;
+  }
 
-:host /deep/ .caption5 {
-  font-size: 0.5em;
-}
+  /deep/ .caption3 {
+    font-size: 0.7em;
+  }
 
-:host /deep/ .caption6 {
-  font-size: 0.5em;
-}
+  /deep/ .caption4 {
+    font-size: 0.6em;
+  }
 
-:host /deep/ .body-header {
-  display: flex;
-  flex-direction: row;
-}
+  /deep/ .caption5 {
+    font-size: 0.5em;
+  }
 
-:host /deep/ .body-header > .body-title {
-  flex: 1;
-}
+  /deep/ .caption6 {
+    font-size: 0.5em;
+  }
 
-:host /deep/ .body-header > .icons {
-  margin: 21px 0;
 
-  font-size: 20pt;
+  /deep/ .body-header {
+    display: flex;
+    flex-direction: row;
+
+
+    > .body-title {
+      flex: 1;
+    }
+
+
+    > .icons {
+      margin: 21px 0;
+
+      font-size: 20pt;
+    }
+  }
 }
