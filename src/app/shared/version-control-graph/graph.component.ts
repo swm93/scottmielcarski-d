@@ -7,7 +7,7 @@ import { CommitComponent } from './commit.component';
 @Component({
   selector: 'vcg-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.css'],
+  styleUrls: ['./graph.component.scss'],
   host: {}
 })
 export class GraphComponent implements AfterContentInit {

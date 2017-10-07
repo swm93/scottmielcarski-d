@@ -5,7 +5,7 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 @Component({
   selector: 'swm-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  styleUrls: ['./navbar.component.scss'],
   host: {
     '[class.open]': 'isOpen'
   }

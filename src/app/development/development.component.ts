@@ -7,7 +7,7 @@ import { CardModule } from '../shared/card/card.module';
 @Component({
   selector: 'swm-development',
   templateUrl: './development.component.html',
-  styleUrls: ['./development.component.css'],
+  styleUrls: ['./development.component.scss'],
   host: {}
 })
 export class DevelopmentComponent {

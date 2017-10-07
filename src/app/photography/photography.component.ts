@@ -11,7 +11,7 @@ import { PhotoService } from './models/photo-service';
 @Component({
   selector: 'swm-photography',
   templateUrl: './photography.component.html',
-  styleUrls: ['./photography.component.css'],
+  styleUrls: ['./photography.component.scss'],
   host: {},
   providers: [PhotoService]
 })

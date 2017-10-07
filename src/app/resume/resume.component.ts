@@ -6,7 +6,7 @@ import { PdfViewerComponent } from 'ng2-pdf-viewer';
 @Component({
   selector: 'swm-resume',
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css'],
+  styleUrls: ['./resume.component.scss'],
   host: {}
 })
 export class ResumeComponent {

@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'swm-navbar-link',
   templateUrl: './navbar-link.component.html',
-  styleUrls: ['./navbar-link.component.css']
+  styleUrls: ['./navbar-link.component.scss']
 })
 export class NavbarLinkComponent {
   @Input()

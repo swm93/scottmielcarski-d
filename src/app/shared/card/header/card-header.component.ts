@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'swm-card-header',
   template: '<ng-content></ng-content>',
-  styleUrls: ['./card-header.component.css'],
+  styleUrls: ['./card-header.component.scss'],
   host: {
     '[style.background-image]': 'background'
   }

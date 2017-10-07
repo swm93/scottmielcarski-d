@@ -5,7 +5,7 @@ import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angu
 @Component({
   selector: 'swm-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   host: {}
 })
 export class HomeComponent {

@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'vcg-commit',
   templateUrl: './commit.component.html',
-  styleUrls: ['./commit.component.css'],
+  styleUrls: ['./commit.component.scss'],
   host: {
     '[style.font-size.px]': 'height',
     '[style.padding-top.px]': 'padding',
