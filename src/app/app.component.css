@@ -20,6 +20,7 @@
 }
 
 #footer {
+  box-sizing: border-box;
   margin: 20px 0 0 0;
   padding: 20px;
   border-style: solid;
@@ -28,4 +29,9 @@
 
   background-color: #dadada;
   font-size: 10pt;
+}
+
+#footer > .content {
+  max-width: 968px;
+  margin: auto;
 }
