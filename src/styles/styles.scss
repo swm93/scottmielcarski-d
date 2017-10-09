@@ -12,6 +12,19 @@ body {
 }
 
 
+section {
+  margin: 16px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
 hr {
   margin: 16px 0;
 

@@ -1,11 +1,29 @@
 @import "variables";
 
+$body-padding: 15px;
 
 
 :host {
   position: relative;
   display: block;
-  padding: 15px;
+  padding: $body-padding;
+
+
+  /deep/ ul {
+    margin: -$body-padding;
+    padding: 0;
+
+
+    li {
+      padding: $body-padding;
+
+      list-style: none;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+      }
+    }
+  }
 
 
   /deep/ h3,
