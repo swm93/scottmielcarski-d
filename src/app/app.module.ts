@@ -11,6 +11,7 @@ import { DevelopmentComponent } from './development/development.component';
 import { PhotographyComponent } from './photography/photography.component';
 import { ResumeComponent } from './resume/resume.component';
 
+import { BackgroundTextModule } from './shared/background-text/background-text.module';
 import { CardModule } from './shared/card/card.module';
 import { NavigationBarModule } from './shared/navigation-bar/navigation-bar.module';
 import { VersionControlGraphModule } from './shared/version-control-graph/version-control-graph.module';
@@ -37,6 +38,7 @@ import { YearDiff } from './shared/year-diff/year-diff.pipe';
     BrowserModule,
     HttpModule,
     routing,
+    BackgroundTextModule,
     CardModule,
     NavigationBarModule,
     VersionControlGraphModule

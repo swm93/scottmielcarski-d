@@ -24,8 +24,15 @@
 
   <swm-card class="hover">
     <swm-card-body [style.height.px]="height">
+      <swm-background-text></swm-background-text>
+
       <div #textContainer id="text-container" class="card-content-container hideable" [class.hidden]="!isTextShown">
-        <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
+
+        <div class="primary-image-container">
+          <i class="primary-image-brace">{{ '{' }}</i>
+          <ng-container *ngTemplateOutlet="imageTemplate"></ng-container>
+          <i class="primary-image-brace">{{ '}' }}</i>
+        </div>
         <p>Hi, I’m <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>, a <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> year old developer living in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>. I’ve recently been professionally involved in <ng-container *ngTemplateOutlet="professionalDevelopment1Template"></ng-container>, <ng-container *ngTemplateOutlet="professionalDevelopment2Template"></ng-container> and <ng-container *ngTemplateOutlet="professionalDevelopment3Template"></ng-container> development, and have been fostering a passion for <ng-container *ngTemplateOutlet="personalDevelopment1Template"></ng-container> development in my spare time. Currently I prefer working in <ng-container *ngTemplateOutlet="preferredLanguage1Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage2Template"></ng-container>, <ng-container *ngTemplateOutlet="preferredLanguage3Template"></ng-container> and <ng-container *ngTemplateOutlet="preferredLanguage4Template"></ng-container>, but intend on learning <ng-container *ngTemplateOutlet="futureLanguage1Template"></ng-container> and <ng-container *ngTemplateOutlet="futureLanguage2Template"></ng-container> in the near future.</p>
       </div>
 
