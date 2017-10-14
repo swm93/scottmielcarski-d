@@ -1,5 +1,9 @@
-<div id="pdf-container" [style.visibility]="isResumeLoaded ? 'visible' : 'hidden'">
-  <pdf-viewer id="resume" [src]="'https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf'" [show-all]="true" [original-size]="false" (after-load-complete)="resumeLoaded($event)"></pdf-viewer>
-  <a id="download-button" class="fab material-icons" href="https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf" target="_blank">file_download</a>
-  <a id="latex-download-button" class="button" href="https://github.com/swm93/employment-docs" target="_blank" rel="noopener">View LaTeX Classes</a>
-</div>
+<section id="resume-section">
+  <h2>Resume</h2>
+
+  <div id="pdf-container" [style.visibility]="isResumeLoaded ? 'visible' : 'hidden'">
+    <pdf-viewer id="resume" [src]="'https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf'" [show-all]="true" [original-size]="false" (after-load-complete)="resumeLoaded($event)"></pdf-viewer>
+    <a id="download-button" class="fab material-icons" href="https://dl.dropboxusercontent.com/s/4g2kmvq6lg5u4ks/Resume.pdf" target="_blank">file_download</a>
+    <a id="latex-download-button" class="button" href="https://github.com/swm93/employment-docs" target="_blank" rel="noopener">View LaTeX Classes</a>
+  </div>
+</section>

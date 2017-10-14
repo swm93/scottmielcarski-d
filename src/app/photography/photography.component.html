@@ -1,27 +1,31 @@
-<div id="cards-container" [class.active]="activePhoto">
-  <div class="card-container" *ngFor="let photo of photos" (click)="activate(photo)">
-    <div class="picture-container card">
+<section id="photography-section">
+  <h2>Photography</h2>
+
+  <div id="cards-container" [class.active]="activePhoto">
+    <div class="card-container" *ngFor="let photo of photos" (click)="activate(photo)">
+      <div class="picture-container card">
+        <picture>
+          <source [srcset]="photo.url" type="image/webp">
+          <source [srcset]="photo.urlFallback" type="image/png"> 
+          <img [src]="photo.urlFallback" [alt]="photo.name">
+        </picture>
+      </div>
+
+      <div class="info-container card">
+        <h2>{{photo.name}}</h2>
+        <p>{{photo.takenAt | date:'fullDate'}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="active-card-container" *ngIf="activePhoto">
+    <div class="card">
+      <button class="close-btn fab material-icons" (click)="activePhoto = null">close</button>
       <picture>
-        <source [srcset]="photo.url" type="image/webp">
-        <source [srcset]="photo.urlFallback" type="image/png"> 
-        <img [src]="photo.urlFallback" [alt]="photo.name">
+        <source [srcset]="activePhoto.url" type="image/webp">
+        <source [srcset]="activePhoto.urlFallback" type="image/png"> 
+        <img [src]="activePhoto.urlFallback" [alt]="activePhoto.name">
       </picture>
     </div>
-
-    <div class="info-container card">
-      <h2>{{photo.name}}</h2>
-      <p>{{photo.takenAt | date:'fullDate'}}</p>
-    </div>
   </div>
-</div>
-
-<div id="active-card-container" *ngIf="activePhoto">
-  <div class="card">
-    <button class="close-btn fab material-icons" (click)="activePhoto = null">close</button>
-    <picture>
-      <source [srcset]="activePhoto.url" type="image/webp">
-      <source [srcset]="activePhoto.urlFallback" type="image/png"> 
-      <img [src]="activePhoto.urlFallback" [alt]="activePhoto.name">
-    </picture>
-  </div>
-</div>
+</section>

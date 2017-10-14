@@ -1,127 +1,131 @@
-<div class="card-container">
-  <swm-card id="nssj-card" class="hover">
-    <swm-card-header></swm-card-header>
-    <swm-card-body>
-      <div class="body-header">
-        <div class="body-title">
-          <h2>Not So Slim Jim</h2>
-          <p class="caption2">C++, Lua, OpenGl</p>
+<section id="projects-section">
+  <h2>Projects</h2>
+
+  <div class="card-container">
+    <swm-card id="nssj-card" class="hover">
+      <swm-card-header></swm-card-header>
+      <swm-card-body>
+        <div class="body-header">
+          <div class="body-title">
+            <h2>Not So Slim Jim</h2>
+            <p class="caption2">C++, Lua, OpenGl</p>
+          </div>
+
+          <div class="icons">
+            <i class="devicon-cplusplus-plain"></i>
+          </div>
         </div>
 
-        <div class="icons">
-          <i class="devicon-cplusplus-plain"></i>
-        </div>
-      </div>
+        <p class="body-text">A 2D game engine focused on flexibility and ease of use. This project was started in 2013 with the sole purpose of gaining a deep and practical understanding of what goes in to building a game.</p>
 
-      <p class="body-text">A 2D game engine focused on flexibility and ease of use. This project was started in 2013 with the sole purpose of gaining a deep and practical understanding of what goes in to building a game.</p>
+        <hr />
 
-      <hr />
+        <h3>Notable Features</h3>
+        <vcg-graph>
+          <vcg-commit name="ecs" [depth]="1">Entity component system as primary data model for game objects</vcg-commit>
+          <vcg-commit name="renderer" [depth]="1">Generic rendering system</vcg-commit>
+          <vcg-commit name="console" [depth]="2" [parentNodes]="['renderer']">Console input for interacting with game objects</vcg-commit>
+          <vcg-commit name="debug" [depth]="2" [parentNodes]="['console']">Debug windows for displaying data</vcg-commit>
+          <vcg-commit name="platform" [depth]="1" [parentNodes]="['renderer']">Cross platform; currently Windows and MacOS</vcg-commit>
+        </vcg-graph>
+      </swm-card-body>
+      <swm-card-footer>
+        <a href="https://github.com/swm93/nssj" target="_blank">View on Github</a>
+      </swm-card-footer>
+    </swm-card>
 
-      <h3>Notable Features</h3>
-      <vcg-graph>
-        <vcg-commit name="ecs" [depth]="1">Entity component system as primary data model for game objects</vcg-commit>
-        <vcg-commit name="renderer" [depth]="1">Generic rendering system</vcg-commit>
-        <vcg-commit name="console" [depth]="2" [parentNodes]="['renderer']">Console input for interacting with game objects</vcg-commit>
-        <vcg-commit name="debug" [depth]="2" [parentNodes]="['console']">Debug windows for displaying data</vcg-commit>
-        <vcg-commit name="platform" [depth]="1" [parentNodes]="['renderer']">Cross platform; currently Windows and MacOS</vcg-commit>
-      </vcg-graph>
-    </swm-card-body>
-    <swm-card-footer>
-      <a href="https://github.com/swm93/nssj" target="_blank">View on Github</a>
-    </swm-card-footer>
-  </swm-card>
-
-  <div class="card-image-container">
-    <picture>
-      <source srcset="/assets/nssj/jim-down.webp" type="image/webp">
-      <source srcset="/assets/nssj/jim-down.png" type="image/png"> 
-      <img src="/assets/nssj/jim-down.png" alt="NSSJ Logo">
-    </picture>
+    <div class="card-image-container">
+      <picture>
+        <source srcset="/assets/nssj/jim-down.webp" type="image/webp">
+        <source srcset="/assets/nssj/jim-down.png" type="image/png"> 
+        <img src="/assets/nssj/jim-down.png" alt="NSSJ Logo">
+      </picture>
+    </div>
   </div>
-</div>
 
-<div class="card-container">
-  <swm-card id="popcornenabled-card" class="hover">
-    <swm-card-header></swm-card-header>
-    <swm-card-body>
-      <div class="body-header">
-        <div class="body-title">
-          <h2>Popcorn Enabled</h2>
-          <p class="caption2">Ruby on Rails, PhoneGap, AWS</p>
+  <div class="card-container">
+    <swm-card id="popcornenabled-card" class="hover">
+      <swm-card-header></swm-card-header>
+      <swm-card-body>
+        <div class="body-header">
+          <div class="body-title">
+            <h2>Popcorn Enabled</h2>
+            <p class="caption2">Ruby on Rails, PhoneGap, AWS</p>
+          </div>
+
+          <div class="icons">
+            <i class="devicon-ruby-plain"></i>
+            <i class="devicon-html5-plain"></i>
+            <i class="devicon-amazonwebservices-original"></i>
+          </div>
         </div>
 
-        <div class="icons">
-          <i class="devicon-ruby-plain"></i>
-          <i class="devicon-html5-plain"></i>
-          <i class="devicon-amazonwebservices-original"></i>
-        </div>
-      </div>
+        <p class="body-text">A mobile app intended to provide a simple means for purchasing goods from stadiums, bars, etc; customers order from their phones and receive a notification when their purchase is ready for pickup.</p>
 
-      <p class="body-text">A mobile app intended to provide a simple means for purchasing goods from stadiums, bars, etc; customers order from their phones and receive a notification when their purchase is ready for pickup.</p>
+        <hr />
 
-      <hr />
+        <vcg-graph>
+          <vcg-commit name="purchase" [depth]="1">Purchase goods directly from your phone</vcg-commit>
+          <vcg-commit name="notifications" [depth]="1">Push or SMS notificaitons when orders status changes</vcg-commit>
+          <vcg-commit name="unified" [depth]="2">Single app for both customer and vendor interfaces</vcg-commit>
+          <vcg-commit name="vendor" [depth]="3">Vendors manage orders from directly within the app</vcg-commit>
+          <vcg-commit name="analitics" [depth]="3">Analytics available for download as Excel sheet</vcg-commit>
+          <vcg-commit name="integration" [depth]="2" [parentNodes]="['unified']">Integration for venues is seamless and free</vcg-commit>
+          <vcg-commit name="realtime" [depth]="1" [parentNodes]="['notifications','integration']">Orders appear in realtime on vendor interface</vcg-commit>
+        </vcg-graph>
+      </swm-card-body>
+      <swm-card-footer>
+        <a href="https://play.google.com/store/apps/details?id=com.popcornenabled.popcornenabled&hl=en" target="_blank">Get It On Google Play</a>
+        <a href="https://itunes.apple.com/ca/app/popcorn-enabled/id1192084329?mt=8" target="_blank">Download on the App Store</a>
+      </swm-card-footer>
+    </swm-card>
 
-      <vcg-graph>
-        <vcg-commit name="purchase" [depth]="1">Purchase goods directly from your phone</vcg-commit>
-        <vcg-commit name="notifications" [depth]="1">Push or SMS notificaitons when orders status changes</vcg-commit>
-        <vcg-commit name="unified" [depth]="2">Single app for both customer and vendor interfaces</vcg-commit>
-        <vcg-commit name="vendor" [depth]="3">Vendors manage orders from directly within the app</vcg-commit>
-        <vcg-commit name="analitics" [depth]="3">Analytics available for download as Excel sheet</vcg-commit>
-        <vcg-commit name="integration" [depth]="2" [parentNodes]="['unified']">Integration for venues is seamless and free</vcg-commit>
-        <vcg-commit name="realtime" [depth]="1" [parentNodes]="['notifications','integration']">Orders appear in realtime on vendor interface</vcg-commit>
-      </vcg-graph>
-    </swm-card-body>
-    <swm-card-footer>
-      <a href="https://play.google.com/store/apps/details?id=com.popcornenabled.popcornenabled&hl=en" target="_blank">Get It On Google Play</a>
-      <a href="https://itunes.apple.com/ca/app/popcorn-enabled/id1192084329?mt=8" target="_blank">Download on the App Store</a>
-    </swm-card-footer>
-  </swm-card>
-
-  <div class="card-image-container">
-    <picture>
-      <source srcset="/assets/popcornenabled/title.webp" type="image/webp">
-      <source srcset="/assets/popcornenabled/title.png" type="image/png"> 
-      <img src="/assets/popcornenabled/title.png" alt="Popcorn Enabled Logo">
-    </picture>
+    <div class="card-image-container">
+      <picture>
+        <source srcset="/assets/popcornenabled/title.webp" type="image/webp">
+        <source srcset="/assets/popcornenabled/title.png" type="image/png"> 
+        <img src="/assets/popcornenabled/title.png" alt="Popcorn Enabled Logo">
+      </picture>
+    </div>
   </div>
-</div>
 
-<div class="card-container">
-  <swm-card id="opoperation-card" class="hover">
-    <swm-card-header></swm-card-header>
-    <swm-card-body>
-      <div class="body-header">
-        <div class="body-title">
-          <h2>Op Operation</h2>
-          <p class="caption2">Swift, SpriteKit</p>
+  <div class="card-container">
+    <swm-card id="opoperation-card" class="hover">
+      <swm-card-header></swm-card-header>
+      <swm-card-body>
+        <div class="body-header">
+          <div class="body-title">
+            <h2>Op Operation</h2>
+            <p class="caption2">Swift, SpriteKit</p>
+          </div>
+
+          <div class="icons">
+            <i class="devicon-swift-plain"></i>
+          </div>
         </div>
 
-        <div class="icons">
-          <i class="devicon-swift-plain"></i>
-        </div>
-      </div>
+        <p class="body-text">Educational math game where players race against the clock to find sets of numbers that sum to a specific value.</p>
 
-      <p class="body-text">Educational math game where players race against the clock to find sets of numbers that sum to a specific value.</p>
+        <hr />
 
-      <hr />
+        <vcg-graph>
+          <vcg-commit name="modern" [depth]="1">Developed in modern Swift version; v4</vcg-commit>
+          <vcg-commit name="leaderboards" [depth]="1">Scores saved in leaderboards via Game Center integration</vcg-commit>
+          <vcg-commit name="themeable" [depth]="2" [parentNodes]="['modern']">Highly themeable; styles decoupled from code</vcg-commit>
+          <vcg-commit name="randomized" [depth]="1" [parentNodes]="['themable', 'leaderboards']">Randomized; every game is unique</vcg-commit>
+        </vcg-graph>
+      </swm-card-body>
+      <swm-card-footer>
+        <a href="https://itunes.apple.com/ca/app/op-operation/id935417402?mt=8" target="_blank">Download on the App Store</a>
+      </swm-card-footer>
+    </swm-card>
 
-      <vcg-graph>
-        <vcg-commit name="modern" [depth]="1">Developed in modern Swift version; v4</vcg-commit>
-        <vcg-commit name="leaderboards" [depth]="1">Scores saved in leaderboards via Game Center integration</vcg-commit>
-        <vcg-commit name="themeable" [depth]="2" [parentNodes]="['modern']">Highly themeable; styles decoupled from code</vcg-commit>
-        <vcg-commit name="randomized" [depth]="1" [parentNodes]="['themable', 'leaderboards']">Randomized; every game is unique</vcg-commit>
-      </vcg-graph>
-    </swm-card-body>
-    <swm-card-footer>
-      <a href="https://itunes.apple.com/ca/app/op-operation/id935417402?mt=8" target="_blank">Download on the App Store</a>
-    </swm-card-footer>
-  </swm-card>
-
-  <div class="card-image-container">
-    <picture>
-      <source srcset="/assets/opoperation/title.webp" type="image/webp">
-      <source srcset="/assets/opoperation/title.png" type="image/png"> 
-      <img src="/assets/opoperation/title.png" alt="Op Operation Logo">
-    </picture>
+    <div class="card-image-container">
+      <picture>
+        <source srcset="/assets/opoperation/title.webp" type="image/webp">
+        <source srcset="/assets/opoperation/title.png" type="image/png"> 
+        <img src="/assets/opoperation/title.png" alt="Op Operation Logo">
+      </picture>
+    </div>
   </div>
-</div>
+</section>

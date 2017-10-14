@@ -134,8 +134,8 @@
 }
 
 
-#detail-section {
-  .detail-cards {
+#skills-section {
+  .skill-cards {
     display: flex;
     flex-direction: row;
 
@@ -169,28 +169,11 @@
 
   swm-card-body {
     li {
-      display: flex;
       padding: 6px 15px;
 
       line-height: 24px;
 
-      &:hover::after {
-        transform: rotate(90deg);
-      }
-
-      &::after {
-        @include material-icon("keyboard_arrow_right");
-
-        margin: auto;
-
-        transition: transform 0.25s ease-in-out;
-
-        font-size: 24px;
-      }
-
-
       p {
-        flex: 1;
         margin: 0;
       }
     }
