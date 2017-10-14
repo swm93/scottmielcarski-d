@@ -9,30 +9,6 @@
 }
 
 
-section {
-  margin: 100px 0;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-
-h2 {
-  padding: 10px 0;
-
-  background: $section-header-background-color;
-
-  color: $background-color;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-
 #introduction-section {
   position: relative;
 
@@ -50,7 +26,14 @@ h2 {
     left: 0;
     right: 0;
     margin: 15px;
+
+    &#detail-container {
+      @media (max-width: $width-sm) {
+        text-align: center;
+      }
+    }
   }
+
 
   #animation-container {
     position: relative;
@@ -132,6 +115,16 @@ h2 {
     font-size: 100pt;
     font-weight: 100;
     color: #dfe9ed;
+
+    @media (max-width: $width-md) {
+      margin: 0 15px;
+
+      font-size: 78pt;
+    }
+
+    @media (max-width: $width-xs) {
+      display: none;
+    }
   }
 
 
@@ -145,6 +138,10 @@ h2 {
   .detail-cards {
     display: flex;
     flex-direction: row;
+
+    @media (max-width: $width-md) {
+      flex-direction: column;
+    }
   }
 
 
