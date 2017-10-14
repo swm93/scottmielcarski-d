@@ -10,7 +10,7 @@
   margin: 18px 20px;
   padding: 0 10px;
 
-  @media (max-width: 840px) {
+  @media (max-width: $drawer-breakpoint) {
     padding: 0;
 
 
@@ -27,7 +27,7 @@
   align-items: center;
 
 
-  @media (max-width: 840px) {
+  @media (max-width: $drawer-breakpoint) {
     position: relative;
     width: 100%;
     padding: 0 8px;
@@ -41,7 +41,7 @@
   align-items: center;
   flex-grow: 1;
 
-  @media (max-width: 840px) {
+  @media (max-width: $drawer-breakpoint) {
     position: fixed;
     box-sizing: border-box;
     flex-direction: column;
@@ -58,7 +58,7 @@
     transition: left 0.3s ease-in-out;
   }
 
-  @media (max-width: 380px) {
+  @media (max-width: $drawer-full-width-breakpoint) {
     width: 100vw;
     left: calc(-100vw - 10px);
   }
@@ -78,7 +78,7 @@
 
 #links-left,
 #links-right {
-  @media (max-width: 840px) {
+  @media (max-width: $drawer-breakpoint) {
     flex-direction: column;
   }
 }
@@ -107,7 +107,7 @@
 
   font-size: 24px;
 
-  @media (max-width: 840px) {
+  @media (max-width: $drawer-breakpoint) {
     display: block;
     z-index: 110;
 

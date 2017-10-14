@@ -11,14 +11,14 @@
 
 #header {
   width: 100%;
-  max-width: $content-width;
+  max-width: $width-lg;
   margin: 20px auto;
 }
 
 #main {
   flex: 1;
   box-sizing: border-box;
-  max-width: $content-width;
+  max-width: $width-lg;
   margin: auto;
   padding: 0 20px;
 }
@@ -35,7 +35,7 @@
   font-size: 10pt;
 
   > .content {
-    max-width: $content-width;
+    max-width: $width-lg;
     margin: auto;
   }
 }

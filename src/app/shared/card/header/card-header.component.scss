@@ -10,7 +10,7 @@
   background-size: auto;
   background-repeat: both;
 
-  @media (max-width: 840px) {
+  @media (max-width: $width-md) {
     height: 80px;
   }
 }

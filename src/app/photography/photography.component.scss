@@ -23,11 +23,11 @@
     filter: grayscale(100%);
   }
 
-  @media (max-width: 840px) {
+  @media (max-width: $width-md) {
     column-count: 2;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $width-sm) {
     column-count: 1;
   }
 }
@@ -51,7 +51,7 @@
   }
 
   &:hover {
-    @media (min-width: 481px) {
+    @media (min-width: $width-sm + 1) {
       .info-container {
         transform: rotateY(0deg);
       }

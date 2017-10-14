@@ -36,7 +36,7 @@
     }
   }
 
-  @media (max-width: 840px) {
+  @media (max-width: $width-md) {
     margin: 0;
   }
 
@@ -44,7 +44,7 @@
   > swm-card {
     width: 70%;
 
-    @media(max-width: 599px) {
+    @media(max-width: $width-md) {
       width: 100%;
     }
 
@@ -62,7 +62,7 @@
     align-items: center;
     justify-content: center;
 
-    @media(max-width: 599px) {
+    @media(max-width: $width-md) {
       display: none;
     }
   }

@@ -1,5 +1,12 @@
 // dimensions
-$content-width: 968px;
+$width-xl: 1280px;
+$width-lg: 960px;
+$width-md: 720px;
+$width-sm: 480px;
+$width-xs: 360px;
+
+$drawer-breakpoint: $width-lg;
+$drawer-full-width-breakpoint: $width-sm;
 
 
 // colors
