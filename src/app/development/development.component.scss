@@ -68,6 +68,18 @@
   }
 }
 
+// TODO(scott): remove this once additional projects are added
+.construction-container {
+  margin: 100px 0 80px 0;
+  text-align: center;
+
+  color: $text-subtle-color;
+
+  > * {
+    vertical-align: middle;
+  }
+}
+
 
 
 // card header backgrounds
