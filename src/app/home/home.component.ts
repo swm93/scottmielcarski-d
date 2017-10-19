@@ -16,6 +16,7 @@ export class HomeComponent {
   @ViewChildren('detailContent') detailContentEls: QueryList<ElementRef>;
 
   public birthDate: string = "July 21, 1993";
+  public nssjDate: string = "2014";
 
   public get height(): number {
     let result: number;

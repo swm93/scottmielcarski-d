@@ -48,7 +48,7 @@
 
 
   .detail-content {
-    font-size: 14pt;
+    font-weight: 400;
   }
 
   img.detail-content {
@@ -130,6 +130,10 @@
 
   #detail-container dt:not(:first-child) {
     margin-top: 32px;
+  }
+
+  dt {
+    margin-bottom: 8px;
   }
 }
 

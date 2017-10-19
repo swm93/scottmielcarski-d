@@ -95,6 +95,15 @@ strong {
 }
 
 
+a {
+  color: $link-color;
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+}
+
+
 .caption1 {
   margin: -0.84em 0 0.67em 0;
 
