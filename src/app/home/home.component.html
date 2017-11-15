@@ -16,7 +16,8 @@
 <ng-template #job2Template><strong #detailContent name="job2" class="detail-content">Nu-Rel</strong></ng-template>
 <ng-template #job3Template><strong #detailContent name="job3" class="detail-content">Evident Point</strong></ng-template>
 <ng-template #socialMedia1Template><a #detailContent href="https://github.com/swm93" target="_blank" name="socialMedia1" class="detail-content">Github</a></ng-template>
-<ng-template #socialMedia2Template><a #detailContent href="https://www.instagram.com/scottmielcarski" target="_blank" name="socialMedia2" class="detail-content">Instagram</a></ng-template>
+<ng-template #socialMedia2Template><a #detailContent href="https://www.linkedin.com/in/scott-mielcarski" target="_blank" name="socialMedia2" class="detail-content">LinkedIn</a></ng-template>
+<ng-template #socialMedia3Template><a #detailContent href="https://www.instagram.com/scottmielcarski" target="_blank" name="socialMedia3" class="detail-content">Instagram</a></ng-template>
 
 <section id="introduction-section" class="section">
   <h2>About Me</h2>
@@ -35,12 +36,11 @@
           <i class="primary-image-brace">{{ '}' }}</i>
         </div>
 
-        <p>Hi, I'm <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>, a developer, an <ng-container *ngTemplateOutlet="degreeTemplate"></ng-container> graduate, and a hobbyist. I strive to be a jack of all trades, master of one; programming.</p>
-        <p>I'm <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> years old and currently living just outside of Vancouver in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>.</p>
+        <p>Hi, I'm <ng-container *ngTemplateOutlet="nameTemplate"></ng-container>, a developer, <ng-container *ngTemplateOutlet="degreeTemplate"></ng-container> graduate and hobbyist. I'm <ng-container *ngTemplateOutlet="ageTemplate"></ng-container> years old and currently living just outside of Vancouver in <ng-container *ngTemplateOutlet="locationTemplate"></ng-container>.</p>
         <p>Recently, I've been working on <ng-container *ngTemplateOutlet="project1Template"></ng-container>, a mobile menu and till; <ng-container *ngTemplateOutlet="project2Template"></ng-container>, a 2D game engine written (almost) entirely from scratch ({{ nssjDate | yearDiff | expandNumber }} years and counting!); and <ng-container *ngTemplateOutlet="project3Template"></ng-container>, a place to put the projects I've been working on (and partially just an excuse to play with Angular again).</p>
-        <p>Appart from that, I've also worked at <ng-container *ngTemplateOutlet="job1Template"></ng-container> on the Mission Maker, a game authoring tool used by teachers and park owners; <ng-container *ngTemplateOutlet="job2Template"></ng-container> on NuValves, a predictive analytics application that notifies oil and gas companies when a valve will likely fail; and <ng-container *ngTemplateOutlet="job3Template"></ng-container> on ActiveTextbook, a web- and mobile-based textbook (PDF and ePub) annotation and sharing platform.</p>
+        <p>Apart from that, I've also worked at <ng-container *ngTemplateOutlet="job1Template"></ng-container> on the Mission Maker, a game authoring tool used by teachers and park owners; <ng-container *ngTemplateOutlet="job2Template"></ng-container> on NuValves, a predictive analytics application that notifies oil and gas companies when a valve will likely fail; and <ng-container *ngTemplateOutlet="job3Template"></ng-container> on ActiveTextbook, a web- and mobile-based textbook (PDF and ePub) annotation and sharing platform.</p>
         <p>I spend my spare time taking pictures, carving, playing guitar, building circuits, and playing video games.</p>
-        <p>I'm not very active on social media, but feel free to check out my <ng-container *ngTemplateOutlet="socialMedia1Template"></ng-container> or <ng-container *ngTemplateOutlet="socialMedia2Template"></ng-container> if you want to see what I'm up to.</p>
+        <p>I'm not very active on social media, but feel free to check out my <ng-container *ngTemplateOutlet="socialMedia1Template"></ng-container>, <ng-container *ngTemplateOutlet="socialMedia2Template"></ng-container> or <ng-container *ngTemplateOutlet="socialMedia3Template"></ng-container> if you want to see what I'm up to.</p>
       </div>
 
       <div #detailContainer id="detail-container" class="card-content-container hideable hidden" [class.hidden]="isTextShown">
@@ -52,19 +52,20 @@
           <dd><ng-container *ngTemplateOutlet="ageTemplate"></ng-container></dd>
           <dt>location</dt>
           <dd><ng-container *ngTemplateOutlet="locationTemplate"></ng-container></dd>
-          <dt>degree</dt>
+          <dt>education</dt>
           <dd><ng-container *ngTemplateOutlet="degreeTemplate"></ng-container></dd>
           <dt>projects</dt>
           <dd><ng-container *ngTemplateOutlet="project1Template"></ng-container></dd>
           <dd><ng-container *ngTemplateOutlet="project2Template"></ng-container></dd>
           <dd><ng-container *ngTemplateOutlet="project3Template"></ng-container></dd>
-          <dt>companies</dt>
+          <dt>past work</dt>
           <dd><ng-container *ngTemplateOutlet="job1Template"></ng-container></dd>
           <dd><ng-container *ngTemplateOutlet="job2Template"></ng-container></dd>
           <dd><ng-container *ngTemplateOutlet="job3Template"></ng-container></dd>
           <dt>connect</dt>
           <dd><ng-container *ngTemplateOutlet="socialMedia1Template"></ng-container></dd>
           <dd><ng-container *ngTemplateOutlet="socialMedia2Template"></ng-container></dd>
+          <dd><ng-container *ngTemplateOutlet="socialMedia3Template"></ng-container></dd>
         </dl>
       </div>
 
@@ -82,6 +83,7 @@
         <ng-container *ngTemplateOutlet="job3Template"></ng-container>
         <ng-container *ngTemplateOutlet="socialMedia1Template"></ng-container>
         <ng-container *ngTemplateOutlet="socialMedia2Template"></ng-container>
+        <ng-container *ngTemplateOutlet="socialMedia3Template"></ng-container>
       </div>
     </swm-card-body>
   </swm-card>
